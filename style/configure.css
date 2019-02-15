@@ -1,0 +1,15 @@
+header {
+	text-align: center;
+}
+
+#options {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin: 5px 5px;
+}
