@@ -1,6 +1,15 @@
 @import 'fonts.css';
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 
+/*
+ * Header styling
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     height: 100px;
     text-align: center;
@@ -20,15 +29,62 @@ h1 {
     vertical-align: middle;
 }
 
-.left-content {
+/* Navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #450084;
+}
+
+nav ul li {
     float: left;
 }
 
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover:not(.active) {
+    background-color: #B599CE;
+}
+
+.active {
+    color: #333333;
+    background-color: #CBB677;
+}
+
+main {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/* Generic content */
+
+.left-content {
+    margin-right: 4em;
+    width: 300px;
+}
+
 .right-content {
-    float: right;
+    margin-right: 4em;
+    width: 300px;
 }
 
 .middle-content {
     margin-left: auto;
     margin-right: auto;
+}
+
+#help, #logout {
+    float: right;
+    border: 0;
+    background: inherit;
+    color: #450084;
+    cursor: pointer;
 }

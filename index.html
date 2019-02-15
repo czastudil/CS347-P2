@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
         <title>JMU CS TA Management</title>
         <link rel="stylesheet" type="text/css" href="style/main.css">
     </head>
@@ -10,15 +11,91 @@
             <h1>TA Hours</h1>
         </header>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="help.html">Help</a>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
         </nav>
         <main>
-            <p>Basic stuff on how to use the system</p>
+            <h2>Home</h2>
+            <p>
+                Use this system to check TA availability and get help during
+                TA hours.
+            </p>
             <div class="left-content">
-                <p>calendar goes here</p>
+                <h3>TAs Available</h3>
+                <p>
+                    Select a day to see which classes TAs will be available
+                    for.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="7">February</th>
+                        </tr>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thur</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
             </div> <!-- #calendar -->
             <div class="right-content">
+                <h3>Sign In</h3>
+                <p>
+                    You must sign in to ask a question.
+                </p>
                 <form action="todo" method="POST">
                     <input type="text" placeholder="e-ID" id="eID" name="eID" required><br>
                     <input type="password" placeholder="password" id="password" name="password" required><br>

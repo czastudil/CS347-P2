@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add New TA</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+    </head>
+
+    <body>
+        <header>
+            <img src="img/jmucs_logo_horiz.png" class="jmu-logo">
+            <!-- Center h1 -->
+            <h1 id="title">Add a New TA</h1>
+            <!-- Logout button, float right -->
+            <button id="logout" type="button" onclick="location.href='index.html';">Log Out</button>
+            <!-- Add help link with logout button -->
+            <button id="help" type="button">Help</button>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="configure.html">Configure</a></li>
+                <li><a href="add-ta.html" class="active">Add TA</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+        <main>
+        <h2>Add new TA</h2>
+            <!-- Enter new TA info here, center -->
+            <div id="addTA">
+                <form> <!-- Add stuff in the form tag -->
+                    <input class="formElem" type="text" name="fname" placeholder="First Name" required><br>
+                    <input class="formElem" type="text" name="lname" placeholder="Last Name" required><br>
+                    <input class="formElem" type="text" name="studentID" placeholder="Student ID number" required><br>
+                    <input class="formElem" type="number" name="minhrs" placeholder="Minimum hrs/week" required><br>
+                    <input class="formElem" type="number" name="maxhrs" placeholder="Maximum hrs/week" required><br>
+                    <input class="formElem" type="text" name="available" placeholder="Availability" required><br>
+                    <input class="formElem" type="submit" value="Generate Schedule">
+                </form>
+                <button id="back" type="button" onclick="location.href='configure.html';">Back</button>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Configure System</title>
-		<link rel="stylesheet" type="text/css" href="style/configure.css">
-	</head>
-	<body>
-		<header>
-			<!-- Center h1 -->
-			<h1 id="title">Configure System</h1>
-			<!-- Logout button, float right -->
-			<button id="logout" type="button" onclick="location.href='index.html';">Log Out</button>
-			<!-- Add help link with logout button -->
-			<button id="help" type="button">Help</button>
-		</header>
-		<div id="calendar">
-			<!-- Calendar will be here, right edge centered -->
-			<iframe src="https://calendar.google.com/calendar/embed?src=34mugejquuc9rg7ivgg01hlhdo%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe>
-		</div>
-		<div id="options">
-			<!-- Configure options list, left edge centered-->
-			<ul>
-				<li><button type="button">Add New TAs (Semester)</button></li>
-				<li><button type="button" onclick="location.href='addTA.html';">Add New TA</button></li>
-				<li><button type="button">Remove TA</button></li>
-				<li><button type="button">Schedule Semester</button></li>
-				<li><button type="button">Approve Shift Swaps</button></li>
-				<li><button type="button">See Current Queue</button></li>
-			</ul>
-		</div>
-	</body>
+    <head>
+        <title>Configure System</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+    </head>
+    <body>
+        <header>
+            <img src="img/jmucs_logo_horiz.png" class="jmu-logo">
+            <!-- Center h1 -->
+            <h1 id="title">Configure System</h1>
+            <!-- Logout button, float right -->
+            <button id="logout" type="button" onclick="location.href='index.html';">Log Out</button>
+            <!-- Add help link with logout button -->
+            <button id="help" type="button">Help</button>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="configure.html" class="active">Configure</a></li>
+                <li><a href="add-ta.html">Add TA</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Configure System</h2>
+            <div id="calendar">
+                <!-- Calendar will be here, right edge centered -->
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?src=34mugejquuc9rg7ivgg01hlhdo%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="300" height="300" frameborder="0" scrolling="no">
+                    Unable to load calendar.
+                </iframe>
+            </div>
+            <div id="options">
+                <!-- Configure options list, left edge centered-->
+                <ul>
+                    <li><button type="button">Add New TAs (Semester)</button></li>
+                    <li><button type="button" onclick="location.href='addTA.html';">Add New TA</button></li>
+                    <li><button type="button">Remove TA</button></li>
+                    <li><button type="button">Schedule Semester</button></li>
+                    <li><button type="button">Approve Shift Swaps</button></li>
+                    <li><button type="button">See Current Queue</button></li>
+                </ul>
+            </div>
+        </main>
+    </body>
 
 </html>
