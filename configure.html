@@ -7,19 +7,21 @@
 	<body>
 		<header>
 			<!-- Center h1 -->
-			<h1>Configure System</h1>
-			<!-- Logout button float right -->
+			<h1 id="title">Configure System</h1>
+			<!-- Logout button, float right -->
+			<button id="logout" type="button" onclick="location.href='index.html';">Log Out</button>
 			<!-- Add help link with logout button -->
+			<button id="help" type="button">Help</button>
 		</header>
-		<div>
+		<div id="calendar">
 			<!-- Calendar will be here, right edge centered -->
+			<iframe src="https://calendar.google.com/calendar/embed?src=34mugejquuc9rg7ivgg01hlhdo%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="300" height="300" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div id="options">
 			<!-- Configure options list, left edge centered-->
-			<!-- Set display to block, vertical list of options -->
 			<ul>
 				<li><button type="button">Add New TAs (Semester)</button></li>
-				<li><button type="button">Add New TA</button></li>
+				<li><button type="button" onclick="location.href='addTA.html';">Add New TA</button></li>
 				<li><button type="button">Remove TA</button></li>
 				<li><button type="button">Schedule Semester</button></li>
 				<li><button type="button">Approve Shift Swaps</button></li>

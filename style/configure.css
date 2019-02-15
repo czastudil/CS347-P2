@@ -1,5 +1,24 @@
 header {
 	text-align: center;
+	margin: 25px 25px;
+}
+
+#title {
+	display: inline;
+}
+
+#logout, #help {
+	float: right;
+	position: relative;
+	margin: 5px 5px;
+}
+
+#calendar {
+	text-align: center;
+}
+
+iframe {
+	display: inline-block;
 }
 
 #options {
