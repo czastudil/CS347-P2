@@ -15,7 +15,7 @@
         <main>
             <p>Basic stuff on how to use the system</p>
             <div id="ask-question-wrapper">
-                <form id="ask-question" name="ask-question" method="POST">
+                <form id="ask-question" name="ask-question" method="POST" action="in-queue.html">
                     <label for="course">Course</label><br>
                     <select name="course" id="course" required>
                         <option value="cs149">CS 149</option>
@@ -31,7 +31,8 @@
                         <option value="malloyka">Dr. Malloy</option>
                     </select><br>
                     <input type="text" placeholder="Assignment"><br>
-                    <textarea form="ask-question" placeholder="Question"></textarea>
+                    <textarea form="ask-question" placeholder="Question"></textarea><br>
+                    <input type="submit" value="Ask">
                 </form>
             </div> <!-- #ask-question-wrapper -->
         </main>
