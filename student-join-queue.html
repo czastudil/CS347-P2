@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ask Question</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Ask A Question</h1>
+        </header>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="help.html">Help</a>
+        </nav>
+        <main>
+            <p>Basic stuff on how to use the system</p>
+            <div id="calendar">
+                <p>calendar goes here</p>
+            </div> <!-- #calendar -->
+            <div id="student-login">
+                <form id="ask-question" name="ask-question" method="POST">
+                    <label for="course">Course</label><br>
+                    <select name="course" id="course" required>
+                        <option value="cs149">CS 149</option>
+                        <option value="cs159">CS 159</option>
+                        <option value="cs240">CS 240</option>
+                        <option value="cs261">CS 261</option>
+                    </select>
+                    <label for="professor">Professor</label><br>
+                    <select name="professor" id="professor">
+                        <option value="weikleda">Dr. Weikle</option>
+                        <option value="stewarmc">Dr. Stewart</option>
+                        <option value="bernstdh">Dr. Bernstein</option>
+                        <option value="malloyka">Dr. Malloy</option>
+                    </select>
+                    <input type="text" placeholder="Assignment"><br>
+                    <textarea form="ask-question" placeholder="Question"></textarea>
+                </form>
+            </div> <!-- #student-login -->
+        </main>
+    </body>
+</html>
