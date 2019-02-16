@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="img/jmucs_logo_horiz.png" class="jmu-logo">
+            <img src="img/jmucs_logo_horiz.png" class="jmu-logo" alt="JMU Computer Science">
             <h1>TA Hours</h1>
         </header>
         <nav>
@@ -32,15 +32,15 @@
             </p>
             <div id="ask-question-wrapper">
                 <form id="ask-question" name="ask-question" method="POST" action="in-queue.html">
-                    <label for="course">Course</label><br>
                     <select name="course" id="course" required>
+                        <option value="">Course</option>
                         <option value="cs149">CS 149</option>
                         <option value="cs159">CS 159</option>
                         <option value="cs240">CS 240</option>
                         <option value="cs261">CS 261</option>
                     </select><br>
-                    <label for="professor">Professor</label><br>
                     <select name="professor" id="professor">
+                        <option value="">Professor</option>
                         <option value="weikleda">Dr. Weikle</option>
                         <option value="stewarmc">Dr. Stewart</option>
                         <option value="bernstdh">Dr. Bernstein</option>
