@@ -48,10 +48,11 @@ nav ul li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    cursor: pointer;
 }
 
-nav ul li a:hover:not(.active) {
-    background-color: #B599CE;
+.right-nav {
+    float: right;
 }
 
 .active {
@@ -59,8 +60,9 @@ nav ul li a:hover:not(.active) {
     background-color: #CBB677;
 }
 
-.right-nav {
-    float: right;
+nav ul li a:hover:not(.active) {
+    color: #333333;
+    background-color: #B599CE;
 }
 
 main {
@@ -99,7 +101,7 @@ input, textarea {
     box-sizing: border-box;
 }
 
-input[type=text], input[type=password], textarea {
+input[type=number], input[type=text], input[type=password], textarea {
     border: 2px solid #D6D6D6;
     padding: 12px 20px;
 }
@@ -109,9 +111,14 @@ input[type=submit] {
     border: none;
     border-radius: 1em;
     cursor: pointer;
-    background-color: #450084;
-    color: #FFFFFF;
+    background-color: #B599CE;
+    color: #333333;
     width: 100%;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #DACCE6;
 }
 
 select {
@@ -119,7 +126,7 @@ select {
     padding: 16px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #f1f1f1;
+    background-color: #F4EFE1;
 }
 
 label {
