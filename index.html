@@ -4,6 +4,20 @@
         <meta charset="utf-8">
         <title>JMU CS TA Management</title>
         <link rel="stylesheet" type="text/css" href="style/main.css">
+        <script>
+            var url = new URL(window.location.href);
+            var role = url.searchParams.get("role");
+            if (role == "student") {
+                window.location.href = "student-join-queue.html";
+            } else if (role == "ta") {
+                window.location.href = "ta-view-queue.html";
+            } else if (role == "faculty") {
+                window.location.href = "configure.html";
+            } else if (role == null) {
+            } else {
+                console.log(role);
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -13,7 +27,7 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="help.html">Help</a></li>
+                <li class="right-nav"><a href="help.html">Help</a></li>
             </ul>
         </nav>
         <main>
@@ -21,6 +35,24 @@
             <p>
                 Use this system to check TA availability and get help during
                 TA hours.
+            </p>
+            <p>
+                The sign-in form below will allow you to sign in to the system.
+                Use the credentials:
+            </p>
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>Password</th>
+                    </tr>
+                    <tr>
+                        <td>test</td>
+                        <td>test</td>
+                    </tr>
+                </table>
+            <p>
+                The form is not secure and under no circumstances should you
+                use a real e-ID or password.
             </p>
             <div class="left-content">
                 <h3>TAs Available</h3>
@@ -94,18 +126,20 @@
             <div class="right-content">
                 <h3>Sign In</h3>
                 <p>
-                    You must sign in to ask a question.
+                    You must sign in to ask a question.<br>
+                    <em>Note:</em> Don't actually enter your e-ID and password
+                    into this form.
                 </p>
-                <form action="todo" method="POST">
+                <form>
                     <input type="text" placeholder="e-ID" id="eID" name="eID" required><br>
                     <input type="password" placeholder="password" id="password" name="password" required><br>
                     <label for="role">Role:</label>
                     <select id="role" name="role" required>
                         <option value="student">Student</option>
-                        <option value="staff">Staff</option>
+                        <option value="ta">TA</option>
                         <option value="faculty">Faculty</option>
                     </select><br>
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Login" onclick="form_link();">
                 </form>
             </div> <!-- #student-login -->
         </main>

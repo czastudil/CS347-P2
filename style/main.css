@@ -59,6 +59,10 @@ nav ul li a:hover:not(.active) {
     background-color: #CBB677;
 }
 
+.right-nav {
+    float: right;
+}
+
 main {
     margin-left: 1em;
     margin-right: 1em;
