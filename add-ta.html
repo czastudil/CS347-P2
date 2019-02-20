@@ -11,34 +11,46 @@
         </style>
     </head>
     <body>
-        <header>
-            <img src="img/jmucs_logo_horiz.png" class="jmu-logo" alt="JMU Computer Science">
-            <h1 id="title">TA Hours</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="configure.html">Configure</a></li>
-                <li><a href="add-ta.html" class="active">Add TA</a></li>
-                <li class="right-nav"><a href="help.html">Help</a></li>
-                <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
-            </ul>
-        </nav>
-        <main>
-        <h2>Add new TA</h2>
-            <!-- Enter new TA info here, center -->
-            <div id="addTA">
-                <form> <!-- Add stuff in the form tag -->
-                    <input class="formElem" type="text" name="fname" placeholder="First Name" required><br>
-                    <input class="formElem" type="text" name="lname" placeholder="Last Name" required><br>
-                    <input class="formElem" type="text" name="studentID" placeholder="Student ID number" required><br>
-                    <input class="formElem" type="number" name="minhrs" placeholder="Minimum hrs/week" required><br>
-                    <input class="formElem" type="number" name="maxhrs" placeholder="Maximum hrs/week" required><br>
-                    <input class="formElem" type="text" name="available" placeholder="Availability" required><br>
-                    <input class="formElem" type="submit" value="Generate Schedule">
-                </form>
-                <button id="back" type="button" onclick="location.href='configure.html';">Back</button>
-            </div>
-        </main>
+        <div class="body-wrapper">
+            <header>
+                <h1 id="title">TA Hours</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="configure.html">Configure</a></li>
+                    <li><a href="add-ta.html" class="active">Add TA</a></li>
+                    <li class="right-nav"><a href="help.html">Help</a></li>
+                    <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
+                </ul>
+            </nav>
+            <main>
+            <h2>Add new TA</h2>
+                <!-- Enter new TA info here, center -->
+                <div id="addTA">
+                    <form> <!-- Add stuff in the form tag -->
+                        <input class="formElem" type="text" name="fname" placeholder="First Name" required><br>
+                        <input class="formElem" type="text" name="lname" placeholder="Last Name" required><br>
+                        <input class="formElem" type="text" name="studentID" placeholder="Student ID number" required><br>
+                        <input class="formElem" type="number" name="minhrs" placeholder="Minimum hrs/week" required><br>
+                        <input class="formElem" type="number" name="maxhrs" placeholder="Maximum hrs/week" required><br>
+                        <input class="formElem" type="text" name="available" placeholder="Availability" required><br>
+                        <input class="formElem" type="submit" value="Generate Schedule">
+                    </form>
+                    <button id="back" type="button" onclick="location.href='configure.html';">Back</button>
+                </div>
+            </main>
+            <footer>
+                <span class="dept">Department of Computer Science</span>
+                <hr>
+                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
+                <address class="contact">
+                    ISAT/CS Building<br>
+                    MSC 4103<br>
+                    701 Carrier Dr<br>
+                    Harrisonburg, VA 22807<br>
+                </address>
+            </footer>
+        </div>
     </body>
 </html>

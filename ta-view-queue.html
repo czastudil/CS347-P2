@@ -6,27 +6,39 @@
         <link rel="stylesheet" type="text/css" href="style/main.css">
     </head>
     <body>
-        <header>
-            <img src="img/jmucs_logo_horiz.png" class="jmu-logo" alt="JMU Computer Science">
-            <h1>TA Hours</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="ta-manage-schedule.html">Manage Schedule</a></li>
-                <li><a href="ta-view-queue.html" class="active">Current Queue</a></li>
-                <li class="right-nav"><a href="help.html">Help</a></li>
-                <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>View Student Queue</h2>
-            <div class="left-content">
-                <button value="Add student">Add Student</button>
-            </div> <!-- #calendar -->
-            <div class="right-content">
-                <p>TODO: List of students in queue goes here</p>
-            </div> <!-- #student-login -->
-        </main>
+        <div class="body-wrapper">
+            <header>
+                <h1>TA Hours</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ta-manage-schedule.html">Manage Schedule</a></li>
+                    <li><a href="ta-view-queue.html" class="active">Current Queue</a></li>
+                    <li class="right-nav"><a href="help.html">Help</a></li>
+                    <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
+                </ul>
+            </nav>
+            <main>
+                <h2>View Student Queue</h2>
+                <div class="left-content">
+                    <button value="Add student">Add Student</button>
+                </div> <!-- #calendar -->
+                <div class="right-content">
+                    <p>TODO: List of students in queue goes here</p>
+                </div> <!-- #student-login -->
+            </main>
+            <footer>
+                <span class="dept">Department of Computer Science</span>
+                <hr>
+                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
+                <address class="contact">
+                    ISAT/CS Building<br>
+                    MSC 4103<br>
+                    701 Carrier Dr<br>
+                    Harrisonburg, VA 22807<br>
+                </address>
+            </footer>
+        </div>
     </body>
 </html>

@@ -11,46 +11,58 @@
         </style>
     </head>
     <body>
-        <header>
-            <img src="img/jmucs_logo_horiz.png" class="jmu-logo" alt="JMU Computer Science">
-            <h1>TA Hours</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="right-nav"><a href="help.html">Help</a></li>
-                <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>Ask A Question</h2>
-            <p>
-                You can use this form to ask the TAs a question. You will be
-                added to the queue and they will come assist you once it is
-                your turn. Please be as detailed as possible with your
-                problem/question description.
-            </p>
-            <div id="ask-question-wrapper">
-                <form id="ask-question" name="ask-question" method="POST" action="in-queue.html">
-                    <select name="course" id="course" required>
-                        <option value="">Course</option>
-                        <option value="cs149">CS 149</option>
-                        <option value="cs159">CS 159</option>
-                        <option value="cs240">CS 240</option>
-                        <option value="cs261">CS 261</option>
-                    </select><br>
-                    <select name="professor" id="professor">
-                        <option value="">Professor</option>
-                        <option value="weikleda">Dr. Weikle</option>
-                        <option value="stewarmc">Dr. Stewart</option>
-                        <option value="bernstdh">Dr. Bernstein</option>
-                        <option value="malloyka">Dr. Malloy</option>
-                    </select><br>
-                    <input type="text" placeholder="Assignment"><br>
-                    <textarea form="ask-question" rows="10" placeholder="Question"></textarea><br>
-                    <input type="submit" value="Ask">
-                </form>
-            </div> <!-- #ask-question-wrapper -->
-        </main>
+        <div class="body-wrapper">
+            <header>
+                <h1>TA Hours</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="right-nav"><a href="help.html">Help</a></li>
+                    <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
+                </ul>
+            </nav>
+            <main>
+                <h2>Ask A Question</h2>
+                <p>
+                    You can use this form to ask the TAs a question. You will be
+                    added to the queue and they will come assist you once it is
+                    your turn. Please be as detailed as possible with your
+                    problem/question description.
+                </p>
+                <div id="ask-question-wrapper">
+                    <form id="ask-question" name="ask-question" method="POST" action="in-queue.html">
+                        <select name="course" id="course" required>
+                            <option value="">Course</option>
+                            <option value="cs149">CS 149</option>
+                            <option value="cs159">CS 159</option>
+                            <option value="cs240">CS 240</option>
+                            <option value="cs261">CS 261</option>
+                        </select><br>
+                        <select name="professor" id="professor">
+                            <option value="">Professor</option>
+                            <option value="weikleda">Dr. Weikle</option>
+                            <option value="stewarmc">Dr. Stewart</option>
+                            <option value="bernstdh">Dr. Bernstein</option>
+                            <option value="malloyka">Dr. Malloy</option>
+                        </select><br>
+                        <input type="text" placeholder="Assignment"><br>
+                        <textarea form="ask-question" rows="10" placeholder="Question"></textarea><br>
+                        <input type="submit" value="Ask">
+                    </form>
+                </div> <!-- #ask-question-wrapper -->
+            </main>
+            <footer>
+                <span class="dept">Department of Computer Science</span>
+                <hr>
+                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
+                <address class="contact">
+                    ISAT/CS Building<br>
+                    MSC 4103<br>
+                    701 Carrier Dr<br>
+                    Harrisonburg, VA 22807<br>
+                </address>
+            </footer>
+        </div>
     </body>
 </html>

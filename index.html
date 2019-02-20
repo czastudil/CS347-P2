@@ -20,128 +20,140 @@
         </script>
     </head>
     <body>
-        <header>
-            <img src="img/jmucs_logo_horiz.png" class="jmu-logo" alt="JMU Computer Science">
-            <h1>TA Hours</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="right-nav"><a href="help.html">Help</a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>Home</h2>
-            <p>
-                Use this system to check TA availability and get help during
-                TA hours.
-            </p>
-            <p>
-                The sign-in form below will allow you to sign in to the system.
-                Use the credentials:
-            </p>
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
-                </table>
-            <p>
-                The form is not secure and under no circumstances should you
-                use a real e-ID or password.
-            </p>
-            <div class="left-content">
-                <h3>TAs Available</h3>
+        <div class="body-wrapper">
+            <header>
+                <h1>TA Hours</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="right-nav"><a href="help.html">Help</a></li>
+                </ul>
+            </nav>
+            <main>
+                <h2>Home</h2>
                 <p>
-                    Select a day to see which classes TAs will be available
-                    for.
+                    Use this system to check TA availability and get help during
+                    TA hours.
                 </p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="7">February</th>
-                        </tr>
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thur</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                            <td>13</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>16</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td>18</td>
-                            <td>19</td>
-                            <td>20</td>
-                            <td>21</td>
-                            <td>22</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>25</td>
-                            <td>26</td>
-                            <td>27</td>
-                            <td>28</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                </table>
-            </div> <!-- #calendar -->
-            <div class="right-content">
-                <h3>Sign In</h3>
                 <p>
-                    You must sign in to ask a question.<br>
-                    <em>Note:</em> Don't actually enter your e-ID and password
-                    into this form.
+                    The sign-in form below will allow you to sign in to the system.
+                    Use the credentials:
                 </p>
-                <form>
-                    <input type="text" placeholder="e-ID" id="eID" name="eID" required><br>
-                    <input type="password" placeholder="password" id="password" name="password" required><br>
-                    <select id="role" name="role" required>
-                        <option value="">Role</option>
-                        <option value="student">Student</option>
-                        <option value="ta">TA</option>
-                        <option value="faculty">Faculty</option>
-                    </select><br>
-                    <input type="submit" value="Login" onclick="form_link();">
-                </form>
-            </div> <!-- #student-login -->
-        </main>
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                        </tr>
+                        <tr>
+                            <td>test</td>
+                            <td>test</td>
+                        </tr>
+                    </table>
+                <p>
+                    The form is not secure and under no circumstances should you
+                    use a real e-ID or password.
+                </p>
+                <div class="left-content">
+                    <h3>TAs Available</h3>
+                    <p>
+                        Select a day to see which classes TAs will be available
+                        for.
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="7">February</th>
+                            </tr>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thur</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                                <td>20</td>
+                                <td>21</td>
+                                <td>22</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>25</td>
+                                <td>26</td>
+                                <td>27</td>
+                                <td>28</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                    </table>
+                </div> <!-- #calendar -->
+                <div class="right-content">
+                    <h3>Sign In</h3>
+                    <p>
+                        You must sign in to ask a question.<br>
+                        <em>Note:</em> Don't actually enter your e-ID and password
+                        into this form.
+                    </p>
+                    <form>
+                        <input type="text" placeholder="e-ID" id="eID" name="eID" required><br>
+                        <input type="password" placeholder="password" id="password" name="password" required><br>
+                        <select id="role" name="role" required>
+                            <option value="">Role</option>
+                            <option value="student">Student</option>
+                            <option value="ta">TA</option>
+                            <option value="faculty">Faculty</option>
+                        </select><br>
+                        <input type="submit" value="Login" onclick="form_link();">
+                    </form>
+                </div> <!-- #student-login -->
+            </main>
+            <footer>
+                <span class="dept">Department of Computer Science</span>
+                <hr>
+                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
+                <address class="contact">
+                    ISAT/CS Building<br>
+                    MSC 4103<br>
+                    701 Carrier Dr<br>
+                    Harrisonburg, VA 22807<br>
+                </address>
+            </footer>
+        </div>
     </body>
 </html>
