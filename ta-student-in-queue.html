@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>JMU CS TA Management</title>
+        <title>In Queue</title>
         <link rel="stylesheet" type="text/css" href="style/main.css">
     </head>
     <body>
@@ -13,20 +13,35 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="ta-manage-schedule.html">Manage Schedule</a></li>
-                    <li><a href="ta-view-queue.html" class="active">Current Queue</a></li>
                     <li class="right-nav"><a href="help.html">Help</a></li>
                     <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
                 </ul>
             </nav>
             <main>
-                <h2>View Student Queue</h2>
-                <div class="left-content">
-                    <button value="Add student" onclick="location.href='ta-add-student.html';">Add Student</button>
-                </div> <!-- #calendar -->
-                <div class="right-content">
-                    <p>TODO: List of students in queue goes here</p>
-                </div> <!-- #student-login -->
+                <h2>In Queue</h2>
+                <p>Student has been added to the queue.</p>
+                <p>Their current position is: 12</p>
+                <p>
+                    They submitted the following:<em>(Sample data)</em><br>
+                </p>
+                <table>
+                    <tr>
+                        <td>Course</td>
+                        <td>CS 159</td>
+                    <tr>
+                        <td>Professor</td>
+                        <td>Dr. Stewart</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment</td>
+                        <td>PA 1</td>
+                    </tr>
+                    <tr>
+                        <td>Question</td>
+                        <td>Unable to get the foo method to work</td>
+                    </tr>
+                </table>
+                <button id="back" type="button" onclick="location.href='ta-add-student.html';">Back</button>
             </main>
             <footer>
                 <span class="dept">Department of Computer Science</span>
