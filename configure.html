@@ -94,12 +94,12 @@
                 <div id="options">
                     <!-- Configure options list, left edge centered-->
                     <ul>
-                        <li><button type="button">Add New TAs (Semester)</button></li>
+                        <li><button type="button" onclick="location.href='import-tas.html';">Add New TAs (Semester)</button></li>
                         <li><button type="button" onclick="location.href='add-ta.html';">Add New TA</button></li>
-                        <li><button type="button">Remove TA</button></li>
-                        <li><button type="button">Schedule Semester</button></li>
-                        <li><button type="button">Approve Shift Swaps</button></li>
-                        <li><button type="button">See Current Queue</button></li>
+                        <li><button type="button" onclick="location.href='remove-ta.html';">Remove TA</button></li>
+                        <li><button type="button">Schedule Semester</button></li> <!-- When clicked, should generate schedule and auto-nav to it -->
+                        <li><button type="button" onclick="location.href='faculty-approve.html';">Approve Shift Swaps</button></li>
+                        <li><button type="button" onclick="location.href='faculty-view-queue.html';">See Current Queue</button></li>
                     </ul>
                 </div>
             </main>
