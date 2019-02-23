@@ -2,11 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>JMU CS TA Management</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style/main.css">
         <script>
+            // SUPER BAD LOGIN LOGIC!
             var url = new URL(window.location.href);
             var role = url.searchParams.get("role");
+            var eid = url.searchParams.get("eID");
+            var password = url.searchParams.get("password");
             if (role == "student") {
                 window.location.href = "student-join-queue.html";
             } else if (role == "ta") {
@@ -20,18 +28,53 @@
         </script>
     </head>
     <body>
-        <div class="body-wrapper">
-            <header>
-                <h1>TA Hours</h1>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li class="right-nav"><a href="help.html">Help</a></li>
-                </ul>
-            </nav>
-            <main>
-                <h2>Home</h2>
+        <header>
+            <h1>TA Hours</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="right-nav"><a href="help.html">Help</a></li>
+            </ul>
+        </nav>
+        <main role="main" class="container">
+            <div class="right-content" style="float:right">
+                <h3>Sign In</h3>
+                <p>
+                    You must sign in to ask a question.<br>
+                    <em>Note:</em> Don't actually enter your e-ID and password
+                    into this form.
+                </p>
+                <form>
+                    <div class="form-group row">
+                        <label for="eID" class="col-sm-2 col-form-label">e-ID</label>
+                        <div class="input-group col-sm-10">
+                            <input type="text" class="form-control" id="eID" placeholder="e-ID" value="test" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" placeholder="Password" value="test" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="role" class="col-sm-2 col-form-label">Role</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="role" name="role" required>
+                                <option value="">Role</option>
+                                <option value="student">Student</option>
+                                <option value="ta">TA</option>
+                                <option value="faculty">Faculty</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Login" onclick="form_link();">
+                </form>
+            </div> <!-- #student-login -->
+
+            <h2>Home</h2>
+            <div style="width: 50%">
                 <p>
                     Use this system to check TA availability and get help during
                     TA hours.
@@ -40,120 +83,86 @@
                     The sign-in form below will allow you to sign in to the system.
                     Use the credentials:
                 </p>
-                    <table>
-                        <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                    </table>
+                <table class="table">
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Password</th>
+                    </tr>
+                    <tr scope="row">
+                        <td>test</td>
+                        <td>test</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="left-content">
+                <h3>TAs Available</h3>
                 <p>
-                    The form is not secure and under no circumstances should you
-                    use a real e-ID or password.
+                    Select a day to see which classes TAs will be available
+                    for.
                 </p>
-                <div class="left-content">
-                    <h3>TAs Available</h3>
-                    <p>
-                        Select a day to see which classes TAs will be available
-                        for.
-                    </p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colspan="7">February</th>
-                            </tr>
-                            <tr>
-                                <th>Sun</th>
-                                <th>Mon</th>
-                                <th>Tue</th>
-                                <th>Wed</th>
-                                <th>Thur</th>
-                                <th>Fri</th>
-                                <th>Sat</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                                <td>8</td>
-                                <td>9</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>11</td>
-                                <td>12</td>
-                                <td>13</td>
-                                <td>14</td>
-                                <td>15</td>
-                                <td>16</td>
-                            </tr>
-                            <tr>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                                <td>20</td>
-                                <td>21</td>
-                                <td>22</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <td>24</td>
-                                <td>25</td>
-                                <td>26</td>
-                                <td>27</td>
-                                <td>28</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                    </table>
-                </div> <!-- #calendar -->
-                <div class="right-content">
-                    <h3>Sign In</h3>
-                    <p>
-                        You must sign in to ask a question.<br>
-                        <em>Note:</em> Don't actually enter your e-ID and password
-                        into this form.
-                    </p>
-                    <form>
-                        <input type="text" placeholder="e-ID" id="eID" name="eID" required><br>
-                        <input type="password" placeholder="password" id="password" name="password" required><br>
-                        <select id="role" name="role" required>
-                            <option value="">Role</option>
-                            <option value="student">Student</option>
-                            <option value="ta">TA</option>
-                            <option value="faculty">Faculty</option>
-                        </select><br>
-                        <input type="submit" value="Login" onclick="form_link();">
-                    </form>
-                </div> <!-- #student-login -->
-            </main>
-            <footer>
-                <span class="dept">Department of Computer Science</span>
-                <hr>
-                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
-                <address class="contact">
-                    ISAT/CS Building<br>
-                    MSC 4103<br>
-                    701 Carrier Dr<br>
-                    Harrisonburg, VA 22807<br>
-                </address>
-            </footer>
-        </div>
-    </body>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="7">February 2019</th>
+                        </tr>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thur</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
+            </div> <!-- #calendar -->
+        </main>
+   </body>
 </html>

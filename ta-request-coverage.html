@@ -1,55 +1,94 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Request Shift Coverage</title>
+    <head>
+        <meta charset="utf-8">
+        <title>Request Shift Coverage</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style/main.css">
-	</head>
-	<body>
-        <div class="body-wrapper">
-            <header>
-                <h1>TA Hours</h1>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="ta-manage-schedule.html" class="active">Manage Schedule</a></li>
-                    <li><a href="ta-view-queue.html">Current Queue</a></li>
-                    <li class="right-nav"><a href="help.html">Help</a></li>
-                    <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
-                </ul>
-            </nav>
-            <main>
-            	<div id="ask-question-wrapper">
-                    <form id="cover-shift" name="cover-shift" method="POST" action="request-added.html">
-                        <select name="lead" id="lead" required>
-                            <option value="">Lead/Regular Shift</option>
-                            <option value="lead">Lead</option>
-                            <option value="regular">Regular</option>
-                        </select><br>
-                        <select name="inclass" id="inclass">
-                            <option value="">Lab Hours/In-Class Shift</option>
-                            <option value="lab">Lab Hours</option>
-                            <option value="class">In-Class</option>
-                        </select><br>
-                        <input type="text" placeholder="Shift time"><br>
-                        <input type="submit" value="Request">
-                    </form>
-                </div> <!-- #ask-question-wrapper -->
-            	<button id="back" type="button" onclick="location.href='ta-manage-schedule.html';">Back</button>
-            </main>
-            <footer>
-                <span class="dept">Department of Computer Science</span>
-                <hr>
-                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
-                <address class="contact">
-                    ISAT/CS Building<br>
-                    MSC 4103<br>
-                    701 Carrier Dr<br>
-                    Harrisonburg, VA 22807<br>
-                </address>
-            </footer>
-        </div>
+    </head>
+    <body>
+        <header>
+            <h1>TA Hours</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ta-manage-schedule.html" class="active">Manage Schedule</a></li>
+                <li><a href="ta-view-queue.html">Current Queue</a></li>
+                <li class="right-nav"><a href="help.html">Help</a></li>
+                <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
+            </ul>
+        </nav>
+        <main role="main" class="container">
+            <h2>Request Shift Coverage</h2>
+            <p class="lead">
+                Choose the shift type and time that you need covered.<br>
+            </p>
+            <p class="text-muted">
+                Note: This is not yet implemented. Eventually it will actually
+                show only the shifts available to the user.
+            </p>
+            <div id="ask-question-wrapper">
+                <form id="cover-shift" name="cover-shift" method="POST" action="request-added.html">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Trade<br>Shift?</th>
+                                <th scope="col">Shift<br>Type</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Date/Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr scope="row">
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="shift1" value="shift1" class="form-check-input">
+                                    </div>
+                                </td>
+                                <td>Lead TA</td>
+                                <td>In-Class</td>
+                                <td>February 24, 2019 10:10AM - 11:00AM</td>
+                            </tr>
+                            <tr scope="row">
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="shift2" value="shift2" class="form-check-input">
+                                    </div>
+                                </td>
+                                <td>Regular</td>
+                                <td>Lab Hours</td>
+                                <td>February 24, 2019 7:00PM - 11:00PM</td>
+                            </tr>
+                            <tr scope="row">
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input position-static" name="shift3" value="shift3">
+                                    </div>
+                                </td>
+                                <td>Lead TA</td>
+                                <td>In-Class</td>
+                                <td>February 26, 2019 10:10AM - 11:00AM</td>
+                            </tr>
+                            <tr scope="row">
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="shift4" value="shift4" class="form-check-input">
+                                    </div>
+                                </td>
+                                <td>Lead TA</td>
+                                <td>In-Class</td>
+                                <td>February 27, 2019 7:00PM - 9:00PM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="btn btn-primary" value="Request Coverage">
+                    <button id="back" type="button" class="btn btn-secondary" onclick="location.href='ta-manage-schedule.html';">Back</button>
+                </form>
+            </div> <!-- #ask-question-wrapper -->
+        </main>
     </body>
-
 </html>

@@ -4,20 +4,19 @@
  */
 
 * {
-    font-size: 14px;
-    line-height: 20px;
-    font-family: "Arial", "Helvetica", sans-serif;
     color: #333333;
 }
 
 h1, h2, h5 {
     color: #450084;
     font-family: "Arvo", sans-serif;
+    margin-top: 1em;
 }
 
 h3, h4, h6 {
     color: #450064;
     font-family: "Arial", sans-serif;
+    margin-top: 1em;
 }
 
 h1 {

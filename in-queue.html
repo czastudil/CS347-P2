@@ -3,56 +3,47 @@
     <head>
         <meta charset="utf-8">
         <title>In Queue</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style/main.css">
     </head>
     <body>
-        <div class="body-wrapper">
-            <header>
-                <h1>TA Hours</h1>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="right-nav"><a href="help.html">Help</a></li>
-                    <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
-                </ul>
-            </nav>
-            <main>
-                <h2>In Queue</h2>
-                <p>You have been added to the queue.</p>
-                <p>Your current position is: 12</p>
-                <p>
-                    You submitted the following:<em>(Sample data)</em><br>
-                </p>
-                <table>
-                    <tr>
-                        <td>Course</td>
-                        <td>CS 159</td>
-                    <tr>
-                        <td>Professor</td>
-                        <td>Dr. Stewart</td>
-                    </tr>
-                    <tr>
-                        <td>Assignment</td>
-                        <td>PA 1</td>
-                    </tr>
-                    <tr>
-                        <td>Question</td>
-                        <td>Unable to get the foo method to work</td>
-                    </tr>
-                </table>
-            </main>
-            <footer>
-                <span class="dept">Department of Computer Science</span>
-                <hr>
-                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
-                <address class="contact">
-                    ISAT/CS Building<br>
-                    MSC 4103<br>
-                    701 Carrier Dr<br>
-                    Harrisonburg, VA 22807<br>
-                </address>
-            </footer>
-        </div>
+        <header>
+            <h1>TA Hours</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="right-nav"><a href="help.html">Help</a></li>
+                <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
+            </ul>
+        </nav>
+        <main role="main" class="container">
+            <h2>In Queue</h2>
+            <p>You have been added to the queue.</p>
+            <p>Your current position is: 12</p>
+            <p>
+                You submitted the following:<em>(Sample data)</em><br>
+            </p>
+            <table class="table">
+                <tr>
+                    <td>Course</td>
+                    <td>CS 159</td>
+                <tr>
+                    <td>Professor</td>
+                    <td>Dr. Stewart</td>
+                </tr>
+                <tr>
+                    <td>Assignment</td>
+                    <td>PA 1</td>
+                </tr>
+                <tr>
+                    <td>Question</td>
+                    <td>Unable to get the foo method to work</td>
+                </tr>
+            </table>
+        </main>
     </body>
 </html>

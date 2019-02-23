@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Import TAs</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style/main.css">
         <style>
             #addTA {
@@ -11,7 +15,6 @@
         </style>
     </head>
     <body>
-        <div class="body-wrapper">
             <header>
                 <h1 id="title">TA Hours</h1>
             </header>
@@ -23,24 +26,27 @@
                     <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
                 </ul>
             </nav>
-            <main>
+            <main role="main" class="container">
+                <h2>Import TAs</h2>
                 <p>To import the list of TAs for the semester, please import a CSV in the correct format.</p>
-                <p>TODO: Add correct CSV format here</p>
-                <button id="back" type="button">Import TAs</button><br>
+                <p class="text-muted">See the below sample data</p>
+                <div id="sample_csv">
+                    <pre><code>firstName,lastName,studentNum,minHours,maxHours,availability
+Kyle,Laker,123456789,5,20,"MWF 7-9, TuTh 7-11"
+Cindy,Zastudil,987654321,5,20,</code></pre>
+                </div>
+                <form>
+                    <div class="form-group row">
+                        <label for="csvFile" class="col-sm-2 col-form-label">Data File (CSV)</label>
+                        <div class="col-sm-10">
+                            <input name="csvFile" id="csvFile" type="file" class="form-control-file" accept=".csv,text/csv">
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Import TAs" class="btn btn-primary">
+                    <button class="btn btn-secondary" id="back" type="button" onclick="location.href='configure.html';">Back</button>
+                </form>
                 <!-- When import - either display a success message or a error message-->
-                <button id="back" type="button" onclick="location.href='configure.html';">Back</button>
             </main>
-            <footer>
-                <span class="dept">Department of Computer Science</span>
-                <hr>
-                <img src="img/jmucs_logo_horiz.png" class="footer-logo" alt="JMU Computer Science">
-                <address class="contact">
-                    ISAT/CS Building<br>
-                    MSC 4103<br>
-                    701 Carrier Dr<br>
-                    Harrisonburg, VA 22807<br>
-                </address>
-            </footer>
-        </div>
     </body>
 </html>

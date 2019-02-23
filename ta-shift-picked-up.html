@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Approve Shift Swaps</title>
+        <title>Shift Cover Requested</title>
         <link rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -16,15 +17,19 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="configure.html" class="active">Configure</a></li>
+                <li><a href="ta-manage-schedule.html" class="active">Manage Schedule</a></li>
+                <li><a href="ta-view-queue.html">Current Queue</a></li>
                 <li class="right-nav"><a href="help.html">Help</a></li>
                 <li class="right-nav"><a onclick="location.href='index.html';">Log Out</a></li>
             </ul>
         </nav>
         <main role="main" class="container">
-            <h2>Approve Shift Changes</h2>
-            <p>List of available shifts will go here.</p>
-            <p>Faculty will have the ability to approve or reject shift changes.</p>
-            <button class="btn btn-secondary" id="back" type="button" onclick="location.href='configure.html';">Back</button>
+            <h2>Pending Approval</h2>
+            <p>
+                The shift you have picked up is now pending approval by a
+                faculty member.
+            </p>
+            <button class="btn btn-primary" id="back" type="button" onclick="location.href='ta-cover-shift.html';">Back</button>
         </main>
     </body>
+</html>

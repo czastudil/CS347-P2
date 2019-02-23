@@ -1,25 +1,9 @@
 @import 'fonts.css';
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 
-* {
- box-sizing: border-box;
-}
-
-*:before,
-*:after {
- box-sizing: border-box;
-}
-
 /*
  * Header styling
  */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    position: relative;
-}
 
 header {
     height: 100px;
@@ -53,7 +37,7 @@ nav ul li {
     float: left;
 }
 
-nav ul li a {
+nav ul li a, nav ul li a:not([href]):not([tabindex]) {
     display: block;
     color: white;
     text-align: center;
@@ -71,22 +55,16 @@ nav ul li a {
     background-color: #CBB677;
 }
 
-nav ul li a:hover:not(.active) {
+nav ul li a:hover {
+    text-decoration: none;
     color: #333333;
+}
+
+nav ul li a:hover:not(.active) {
     background-color: #B599CE;
 }
 
-.body-wrapper {
-    min-height: 100vh;
-    overflow: hidden;
-    display: block;
-    position: relative;
-    padding-bottom: 150px; /* height of your footer */
-}
-
 main {
-    margin-left: 1em;
-    margin-right: 1em;
     margin-bottom: 1em;
 }
 
@@ -94,12 +72,11 @@ main {
 
 .left-content {
     margin-right: 4em;
-    width: 300px;
+    width: 50%;
 }
 
 .right-content {
-    margin-right: 4em;
-    width: 300px;
+    width: 40%;
 }
 
 .middle-content {
@@ -113,83 +90,4 @@ main {
     background: inherit;
     color: #450084;
     cursor: pointer;
-}
-
-input, textarea {
-    width: 100%;
-    border-radius: .5em;
-    box-sizing: border-box;
-}
-
-input[type=number], input[type=text], input[type=password], textarea {
-    border: 2px solid #D6D6D6;
-    padding: 12px 20px;
-}
-
-input[type=submit], button {
-    height: 3em;
-    border: none;
-    border-radius: 1em;
-    cursor: pointer;
-    background-color: #B599CE;
-    color: #333333;
-    width: 100%;
-}
-
-button {
-    margin-top: .25em;
-    margin-bottom: .25em;
-}
-
-input[type=submit]:hover, button:hover {
-    cursor: pointer;
-    background-color: #DACCE6;
-}
-
-select {
-    width: 100%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #F4EFE1;
-}
-
-label {
-    font-size: 1.25em;
-    font-style: italic;
-}
-
-form * {
-    margin: 2px;
-}
-
-/*
- * Footer
- */
-
-footer {
-    position: absolute;
-    bottom: 0;
-    font-family: "Arial", sans-serif;
-    font-size: 12px;
-    background-color: #D6D6D6;
-    padding: 1em 1em;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-footer .dept {
-    font-family: "Arvo", serif;
-    font-size: 16px;
-    color: #595959;
-}
-
-footer address {
-    float: left;
-    font-style: normal;
-}
-
-footer .footer-logo {
-    float: right;
-    height: 90px;
 }
