@@ -1,0 +1,7 @@
+DROP USER IF EXISTS ta_user;
+
+CREATE USER ta_user PASSWORD 'password';
+
+DROP DATABASE IF EXISTS ta;
+
+CREATE DATABASE ta OWNER ta_user;
