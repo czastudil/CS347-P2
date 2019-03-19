@@ -21,8 +21,8 @@ class TA(models.Model):
 class Question(models.Model):
 	eid = models.ForeignKey(Student, on_delete=models.CASCADE)
 	time = models.DateTimeField('time added')
-	course = models.ForeignKey(Course, on_delete=models.SET_NULL)
-	professor = models.ForeignKey(Professor, on_delete=models.SET_NULL)
+	course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
+	professor = models.ForeignKey(Professor, on_delete=models.SET_NULL, null=True)
 	assignment = models.CharField(max_length=20)
 	question = models.TextField(max_length=200)
 
