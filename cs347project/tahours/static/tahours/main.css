@@ -1,0 +1,90 @@
+@import 'fonts.css';
+
+/*
+ * Header styling
+ */
+
+header {
+    height: 100px;
+    text-align: center;
+    background-color: #F4EFE1;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+h1 {
+    display: inline;
+    vertical-align: middle;
+}
+
+/* Navigation */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #450084;
+}
+
+main {
+    margin-top: 1em;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a, nav ul li a:not([href]):not([tabindex]) {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.right-nav {
+    float: right;
+}
+
+.active {
+    color: #333333;
+    background-color: #CBB677;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: #333333;
+}
+
+nav ul li a:hover:not(.active) {
+    background-color: #B599CE;
+}
+
+main {
+    margin-bottom: 1em;
+}
+
+/* Generic content */
+
+.left-content {
+    margin-right: 4em;
+    width: 50%;
+}
+
+.right-content {
+    width: 40%;
+}
+
+.middle-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#help, #logout {
+    float: right;
+    border: 0;
+    background: inherit;
+    color: #450084;
+    cursor: pointer;
+}
