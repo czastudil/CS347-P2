@@ -22,4 +22,5 @@ from django.urls import (
 urlpatterns = [
     path('tahours/', include('tahours.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

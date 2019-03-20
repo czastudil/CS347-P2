@@ -3,6 +3,7 @@
 {% block title %}JMU CS TA Hours{% endblock %}
 
 {% block content %}
+{% if not user.is_authenticated %}
 <div class="right-content" style="float:right">
     <h3>Sign In</h3>
     <p>
@@ -39,6 +40,7 @@
         <input class="btn btn-primary" type="submit" value="Login" onclick="form_link();">
     </form>
 </div> <!-- #student-login -->
+{% endif %}
 
 <h2>Home</h2>
 <div style="width: 50%">

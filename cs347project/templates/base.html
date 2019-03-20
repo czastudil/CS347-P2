@@ -17,8 +17,11 @@
         </header>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="right-nav"><a href="help.html">Help</a></li>
+                <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                <li class="right-nav"><a href="{% url 'help' %}">Help</a></li>
+                {% if user.is_authenticated %}
+                <li class="right-nav"><a href="{% url 'logout' %}">Log out</a></li>
+                {% endif %}
             </ul>
         </nav>
         <main role="main" class="container">
