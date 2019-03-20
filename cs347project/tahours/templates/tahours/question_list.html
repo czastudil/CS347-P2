@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Current Queue{% endblock %}
+
+{% block content %}
+<h2>Current Queue</h2>
+{% if question_list %}
+<p class="lead">A list of all current questions in the queue</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Pos</th>
+            {# Only TAs and professors can see student names #}
+            {% if 'ta' in roles or 'professor' in roles %}
+            <th>Name</th>
+            {% endif %}
+            <th nowrap>Class</th>
+            <th nowrap>Professor</th>
+            <th>Question</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in question_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            {% if 'ta' in roles or 'professor' in roles %}
+            <td>{{ question.student.user.first_name }} {{ question.student.user.last_name }} ({{ question.student.user }})</td>
+            {% endif %}
+            <td>{{ question.course }}</td>
+            <td>{{ question.professor.user }}</td>
+            <td>{{ question.question }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="lead">There are currently no questions in the queue</p>
+{% endif %}
+
+{# Only TAs and professors can add students #}
+{% if 'ta' in roles or 'professor' in roles %}
+<button class="btn btn-primary" value="Add student" onclick="location.href='ta-add-student.html';">Add Student</button>
+{% endif %}
+{% endblock %}

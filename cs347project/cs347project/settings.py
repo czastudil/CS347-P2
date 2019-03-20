@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'tahours.context_processors.roles_processor',
             ],
         },
     },
@@ -126,3 +128,6 @@ STATIC_URL = '/static/'
 
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = '/tahours/'
+
+AUTH_USER_MODEL = 'tahours.User'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

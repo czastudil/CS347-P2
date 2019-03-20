@@ -12,41 +12,21 @@
 
 {% if next %}
     {% if user.is_authenticated %}
-        <p>
-            You do not have access to this page.
-        </p>
+        <div class="alert alert-warning" role="alert">
+            You do not have access to view this page.
+        </div>
     {% else %}
-        <p>
-            Please sign in to see this page
-        </p>
+        <div class="alert alert-primary" role="alert">
+            Please sign in to see this page.
+        </div>
     {% endif %}
 {% endif %}
 
-<div>
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <div class="form-group row">
-            <div class="col-sm-2 col-form-label">
-                {{ form.username.label_tag }}
-            </div>
-            <div class="input-group col-sm-10">
-                {{ form.username }}
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-2 col-form-label">
-                {{ form.password.label_tag }}
-            </div>
-            <div class="input-group col-sm-10">
-                {{ form.password }}
-            </div>
-        </div>
-        <input class="btn btn-primary" type="submit" value="Login">
-        <input type="hidden" name="next" value="{{ next }}">
-    </form>
-</div>
+{% include 'login_form.html' %}
 
-<div class="alert alert-primary" role="alert">
-    Please contact the JMU IT Help Desk if you have forgotten your password.
+<div class="container">
+    <p>
+        Please contact the JMU IT Help Desk if you have forgotten your password.
+    </p>
 </div>
 {% endblock %}
