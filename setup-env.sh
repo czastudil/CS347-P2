@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 env_dir="djangoenv"
-dependencies=( "Django" "psycopg2" )
+dependencies=( "Django" "psycopg2" "django-widget-tweaks" )
 
 pip3 install --user virtualenv
 virtualenv --python=python3 "$env_dir"

@@ -25,6 +25,7 @@
                 {% endif %}
 
                 {% if 'ta' in roles %}
+                <li><a href="{% url 'shifts' %}">Shifts</a></li>
                 {% endif %}
 
                 {% if 'professor' in roles %}
@@ -42,6 +43,23 @@
         <main role="main" class="container">
             {% block content %}
             {% endblock %}
+
+            {% if debug %}
+            <h2>Debug Data</h2>
+                {% if user.is_authenticated %}
+                <p>
+                    {{ user.username }}:
+                    {% for role in roles %}
+                    {{ role }},
+                    {% endfor %}
+                </p>
+                {% endif %}
+
+            <p>Request: {{ request }}</p>
+
+            {# Individual pages can add additional debug info here #}
+            {% block debug_data %}{% endblock %}
+            {% endif %}
         </main>
 
         <!-- Bootstrap JavaScript -->

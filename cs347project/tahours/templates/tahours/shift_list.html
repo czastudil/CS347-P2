@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Available Shifts{% endblock %}
+
+{% block content %}
+<h2>Available Shifts</h2>
+{% if shift_list %}
+<p class="lead">All available shifts</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shift in shift_list %}
+        <tr>
+            <td>{{ shift.course }}</td>
+            <td>{{ shift.start }}</td>
+            <td>{{ shift.end }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="lead">There are no shifts available</p>
+{% endif %}
+
+{% endblock %}

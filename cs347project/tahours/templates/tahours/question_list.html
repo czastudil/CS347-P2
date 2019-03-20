@@ -37,8 +37,7 @@
 <p class="lead">There are currently no questions in the queue</p>
 {% endif %}
 
-{# Only TAs and professors can add students #}
-{% if 'ta' in roles or 'professor' in roles %}
-<button class="btn btn-primary" value="Add student" onclick="location.href='ta-add-student.html';">Add Student</button>
+{% if 'student' in roles or not user.is_authenticated %}
+<button class="btn btn-primary" onclick="location.href='{% url 'ask_question' %}';">Ask Question</button>
 {% endif %}
 {% endblock %}

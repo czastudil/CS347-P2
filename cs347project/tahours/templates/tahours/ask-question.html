@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block title %}Ask A Question{% endblock %}
 
@@ -15,18 +15,21 @@
 <div id="ask-question-wrapper">
     <form id="ask-question" name="ask-question" method="POST" action="">
         {% csrf_token %}
-        <div class="form-group row">
-            {{ form.course | as_crispy_field }}
+
+        {{ form.non_field_errors }}
+
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %}
         </div>
-        <div class="form-group row">
-            {{ form.professor | as_crispy_field }}
-        </div>
-        <div class="form-group row">
-            {{ form.assignment | as_crispy_field }}
-        </div>
-        <div class="form-group row">
-            {{ form.question | as_crispy_field }}
-        </div>
+        {% endfor %}
+
         <input class="btn btn-primary" type="submit" value="Ask Question">
     </form>
 </div> <!-- #ask-question-wrapper -->

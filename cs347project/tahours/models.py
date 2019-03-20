@@ -13,8 +13,10 @@ class Course(models.Model):
     class Meta:
         ordering = ['number']
 
+
 class User(AbstractUser):
     pass
+
 
 class Student(models.Model):
     user = models.OneToOneField(
@@ -23,8 +25,12 @@ class Student(models.Model):
     )
     courses = models.ManyToManyField(Course, blank=True)
 
+    def __repr__(self):
+        return f"<Student {self.user.username}>"
+
     def __str__(self):
-        return f"Student: {self.user.username}"
+        return f"{self.user.username}"
+
 
 class Professor(models.Model):
     user = models.OneToOneField(
@@ -33,8 +39,11 @@ class Professor(models.Model):
     )
     courses = models.ManyToManyField(Course, blank=True)
 
+    def __repr__(self):
+        return f"<Professor {self.user.username}>"
+
     def __str__(self):
-        return f"Professor: {self.user.username}"
+        return f"{self.user.username}"
 
 
 class TA(models.Model):
@@ -44,12 +53,17 @@ class TA(models.Model):
     )
     courses = models.ManyToManyField(Course, blank=True)
 
+
+    def __repr__(self):
+        return f"<TA {self.user.username}>"
+
     def __str__(self):
-        return f"TA: {self.user.username}"
+        return f"{self.user.username}"
 
     class Meta:
         verbose_name = "TA"
         verbose_name_plural = "TAs"
+
 
 class Question(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
@@ -62,11 +76,13 @@ class Question(models.Model):
     class Meta:
         ordering = ['time']
 
+
 class Shift(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     owner = models.ForeignKey(TA, on_delete=models.SET_NULL, null=True)
+    is_available = models.BooleanField()
 
     class Meta:
         ordering = ['start', 'end']

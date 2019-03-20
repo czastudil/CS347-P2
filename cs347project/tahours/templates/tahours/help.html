@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Help{% endblock %}
+
+{% block content %}
+<h2>Help & FAQs</h2>
+<p class="text-muted">
+    These are sample questions and answers.
+</p>
+<h3>How do I sign in?</h3>
+<p>
+    Once the real system is live, sign in using your JMU e-ID and
+    password. For now, use some of the available test credentials.
+</p>
+<h3>How do I ask a question?</h3>
+<p>
+    Go to the <a href="{% url 'questions' %}">Question List</a> and
+    click the <em>Ask Question</em> button on that page. Make sure to
+    give as much information as you can without being too verbose to
+    allow TAs to identify how to best help you.
+</p>
+<h3>How do I add a TA?</h3>
+<p>
+    Any faculty member may add one or more TAs by signing in and going
+    into the system configuration page.
+</p>
+{% endblock %}

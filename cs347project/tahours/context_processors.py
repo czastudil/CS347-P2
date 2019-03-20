@@ -1,3 +1,5 @@
+from django.conf import settings
+
 def roles_processor(request):
     roles = []
     if hasattr(request, 'user'):
@@ -8,3 +10,6 @@ def roles_processor(request):
         if hasattr(request.user, 'professor'):
             roles.append('professor')
     return {'roles': roles}
+
+def debug(context):
+    return {'debug': settings.DEBUG}

@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import mixins
 from django.views import generic
 
 from .forms import (
@@ -12,11 +13,15 @@ from .forms import (
 
 from .models import (
     Question,
+    Shift,
 )
 
 # Create your views here.
 def index(request):
     return render(request, 'tahours/index.html')
+
+def help(request):
+    return render(request, 'tahours/help.html')
 
 class QuestionListView(generic.ListView):
     model = Question
@@ -33,7 +38,21 @@ def ask_question(request):
     else:
         form = QuestionForm()
 
-    return render(request, 'tahours/student/ask-question.html', {'form': form})
+    return render(request, 'tahours/ask-question.html', {'form': form})
 
-def help(request):
-    return HttpResponse("TODO")
+class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
+    model = Shift
+    queryset = Shift.objects.filter(is_available=True)
+    raise_exception = False
+    permission_denied_message = (
+        "Only TAs are able to access this page. Please talk to a professor to"
+        " ensure that your TA access has been configured correctly."
+    )
+
+    def test_func(self):
+        return hasattr(self.request.user, 'ta')
+
+# def shift_swap(request):
+#     if not hasattr(request.user, 'ta'):
+#         return redirect('/accounts/login?next=/tahours/shifts')
+#     return render(request, 'tahours/shift_list.html')

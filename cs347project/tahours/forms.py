@@ -6,6 +6,7 @@ from .models import (
 )
 
 class QuestionForm(ModelForm):
+
     class Meta:
         model = Question
         fields = [

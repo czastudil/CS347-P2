@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load widget_tweaks %}
+
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -22,10 +24,21 @@
     {% endif %}
 {% endif %}
 
-{% include 'login_form.html' %}
+<div style="width: 60%; margin-left: auto; margin-right: auto">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
 
-<div class="container">
-    <p>
+        {% for field in form.visible_fields %}
+        <div class="form-group row">
+            {{ field | add_label_class:"col-sm-2 col-form-label" }}
+            {% render_field field class="form-control col-sm-10" %}
+        </div>
+        {% endfor %}
+
+        <input class="btn btn-primary" type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+    <p style="margin-top: 1em">
         Please contact the JMU IT Help Desk if you have forgotten your password.
     </p>
 </div>
