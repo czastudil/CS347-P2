@@ -29,7 +29,7 @@ def ask_question(request):
             question = form.save(commit=False)
             question.student = request.user.student
             question.save()
-            return redirect('/tahours/', pk=question.pk)
+            return redirect('/tahours/questions')
     else:
         form = QuestionForm()
 

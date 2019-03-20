@@ -17,10 +17,25 @@
         </header>
         <nav>
             <ul>
-                <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'questions' %}">Question List</a></li>
+
+                {% if 'student' in roles %}
+                <li><a href="{% url 'ask_question' %}">Ask Question</a></li>
+                {% endif %}
+
+                {% if 'ta' in roles %}
+                {% endif %}
+
+                {% if 'professor' in roles %}
+                {% endif %}
+
                 <li class="right-nav"><a href="{% url 'help' %}">Help</a></li>
+
                 {% if user.is_authenticated %}
                 <li class="right-nav"><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                <li class="right-nav"><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
             </ul>
         </nav>
