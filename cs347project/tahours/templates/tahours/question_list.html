@@ -32,7 +32,7 @@
             <td>{{ question.course }}</td>
             <td>{{ question.professor.user }}</td>
             <td>{{ question.question }}</td>
-            {# Only TAs and Professors should be able to remove students from the queue, currently not functional}
+            {# Only TAs and Professors should be able to remove students from the queue, currently not functional #}
 	    {% if 'ta' in roles or 'professor' in roles %}
 	    <td><button class="btn btn-primary">Completed</button></td>
             {% endif %}
