@@ -8,4 +8,5 @@ urlpatterns = [
     path('ask-question', views.ask_question, name='ask_question'),
     path('questions', views.QuestionListView.as_view(), name='questions'),
     path('shifts', views.ShiftListView.as_view(), name='shifts'),
+    path('question-done', views.question_done, name='question-done'),
 ]

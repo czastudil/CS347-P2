@@ -52,6 +52,14 @@ class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gener
     def test_func(self):
         return hasattr(self.request.user, 'ta')
 
+def question_done(request):
+    if request.method == 'POST':
+        id = request.POST['question_id']
+        question = Question.objects.get(pk=id)
+        question.completed = True
+        question.save()
+        return redirect('/tahours/questions')
+
 # def shift_swap(request):
 #     if not hasattr(request.user, 'ta'):
 #         return redirect('/accounts/login?next=/tahours/shifts')
