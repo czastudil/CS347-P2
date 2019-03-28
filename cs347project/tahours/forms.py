@@ -5,6 +5,7 @@ from .models import (
     Shift,
 )
 
+
 class QuestionForm(ModelForm):
 
     class Meta:
