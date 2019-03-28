@@ -10,10 +10,6 @@ from django.views import (
     View
 )
 
-from .decorators import (
-    check_role
-)
-
 from .forms import (
     QuestionForm,
 )
