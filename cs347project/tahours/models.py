@@ -53,7 +53,6 @@ class TA(models.Model):
     )
     courses = models.ManyToManyField(Course, blank=True)
 
-
     def __repr__(self):
         return f"<TA {self.user.username}>"
 
