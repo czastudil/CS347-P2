@@ -30,6 +30,7 @@ def help(request):
 
 class QuestionListView(generic.ListView):
     model = Question
+    queryset = Question.objects.filter(completed=False)
 
 
 class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.edit.FormView):

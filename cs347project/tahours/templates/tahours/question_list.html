@@ -33,13 +33,14 @@
             <td>{{ question.professor.user }}</td>
             <td>{{ question.question }}</td>
             {# Only TAs and Professors should be able to remove students from the queue, currently not functional #}
-	    {% if 'ta' in roles or 'professor' in roles %}
-	    <td><form method="POST" action="{% url 'question-done' %}">
-		<input type="hidden" name="question_id" id="question{{ question.id }}" value="{{ question.id }}">
-            	<input type="hidden" name="completed" id="completed" value="true">
-	        <input type="submit" name="submit" id="submit" value="Completed">
- 	    </form></td>
-            {% endif %}
+            {% if 'ta' in roles or 'professor' in roles %}
+            <td><form method="POST" action="{% url 'question-done' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="question_id" id="question{{ question.id }}" value="{{ question.id }}">
+                    <input type="hidden" name="completed" id="completed" value="true">
+                    <input type="submit" name="submit" id="submit" value="Completed">
+                </form></td>
+                {% endif %}
         </tr>
         {% endfor %}
     </tbody>
