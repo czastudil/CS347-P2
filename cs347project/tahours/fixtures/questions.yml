@@ -1,0 +1,34 @@
+---
+- model: tahours.Question
+	pk: 1
+  fields:
+    student: 3
+    time: "2019-04-02T14:20:13-04:00"
+    course: CS 159 // need to change
+    professor: 2
+    assignment: PA1
+    question: How do you recursion?
+    completed: "false"
+
+- model: tahours.Question
+  pk: 2
+  fields:
+    student: 3
+    time: "2019-04-01T14:20:13-4:00"
+    course: 1
+    professor: 1
+    assignment: PA2
+    question: My program is broken
+    completed: "false"
+
+- model: tahours.Question
+  pk: 3
+  fields:
+    student: 3
+    time: "2019-04-01T08:20:13-4:00"
+    course: 3
+    professor: 1
+    assignment: PA700
+    question: I'm tired, please help
+    completed: "false"
+...

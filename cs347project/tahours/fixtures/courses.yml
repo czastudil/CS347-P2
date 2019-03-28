@@ -1,0 +1,18 @@
+---
+- model: tahours.Course
+  pk: 1
+  fields: 
+    number: CS 149
+    name: Introduction to Programming
+- model: tahours.Course
+  pk: 2
+  fields:
+    number: CS 159
+    name: Advanced Programming
+- model: tahours.Course
+  pk: 3
+  fields:
+    number: CS 240
+    name: Data Structures and Algorithms
+
+...
