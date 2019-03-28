@@ -1,7 +1,7 @@
 ---
 - model: tahours.User
-	pk: 1
-	fields:
+  pk: 1
+  fields:
     username: stewarmc
     password: stewarmcstewarmc
     first_name: Michael
@@ -13,17 +13,17 @@
     username: weikleda
     password: weikledaweikleda
     first_name: Dee
-    last_name: Weikle 
+    last_name: Weikle
 
 - model: tahours.User
   pk: 3
   fields:
-      username: lakerka
-      password: lakerkalakerka
-      first_name: Kyle
-      last_name: Laker 
+    username: lakerka
+    password: lakerkalakerka
+    first_name: Kyle
+    last_name: Laker
 
-- model: tahours.User 
+- model: tahours.User
   pk: 4
   fields:
     username: zastudcr
@@ -31,4 +31,23 @@
     first_name: Cindy
     last_name: Zastudil
 
+- model: tahours.Student
+  fields:
+    user: 3
+
+- model: tahours.TA
+  fields:
+    user: 4
+
+- model: tahours.Professor
+  fields:
+    user: 1
+
+- model: tahours.Professor
+  fields:
+    user: 2
+
+- model: tahours.Professor
+  fields:
+    user: 3
 ...
