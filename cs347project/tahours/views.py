@@ -100,3 +100,20 @@ def pickup_shift(request):
         swap.save()
         return redirect('/tahours/swap-shifts')
 
+def post_shift(request):
+    if request.method == 'POST':
+        shift_id = request.POST['shift_id']
+        shift = Shift.objects.get(pk=shift_id)
+        shift.is_available = True;
+        shift.owner = None;
+        swap = ShiftSwap()
+        swap.posted_by = request.user.ta
+        swap.shift = Shift.objects.get(pk=shift_id)
+        # The swap must be saved first because if it fails then we must not
+        # modify the original shift (so that the user can attempt to post the
+        # shift again).
+        swap.save()
+        shift.save()
+
+        return redirect('/tahours/shifts')
+

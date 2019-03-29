@@ -11,4 +11,5 @@ urlpatterns = [
     path('swap-shifts', views.ShiftSwapListView.as_view(), name='swap-shifts'),
     path('question-done', views.question_done, name='question-done'),
     path('pickup-shift', views.pickup_shift, name='pickup-shift'),
+    path('post-shift', views.post_shift, name='post-shift'),
 ]
