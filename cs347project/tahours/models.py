@@ -86,3 +86,13 @@ class Shift(models.Model):
 
     class Meta:
         ordering = ['start', 'end']
+
+
+class ShiftSwap(models.Model):
+    shift = models.OneToOneField(Shift, on_delete=models.CASCADE)
+    posted_by = models.ForeignKey(TA, related_name='posted', on_delete=models.SET_NULL, null=True)
+    picked_by = models.ForeignKey(TA, related_name='picked', on_delete=models.SET_NULL, null=True)
+    approved_by = models.ForeignKey(Professor, on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        ordering = ['shift']

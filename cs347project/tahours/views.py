@@ -48,6 +48,7 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
         # Student must be saved from the user data since it is not an entry
         # on the form
         question.student = self.request.user.student
+        question.completed = False
         question.save()
         return super().form_valid(form)
 

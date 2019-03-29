@@ -18,28 +18,30 @@
             <th nowrap>Professor</th>
             <th>Question</th>
             {% if 'ta' in roles or 'professor' in roles %}
-            <th>Mark as Complete</th>
+            <th></th>
             {% endif %}
         </tr>
     </thead>
     <tbody>
         {% for question in question_list %}
         <tr>
-            <td>{{ forloop.counter }}</td>
+            <td class="align-middle">{{ forloop.counter }}</td>
             {% if 'ta' in roles or 'professor' in roles %}
-            <td>{{ question.student.user.first_name }} {{ question.student.user.last_name }} ({{ question.student.user }})</td>
+            <td class="align-middle">{{ question.student.user.first_name }} {{ question.student.user.last_name }} ({{ question.student.user }})</td>
             {% endif %}
-            <td>{{ question.course }}</td>
-            <td>{{ question.professor.user }}</td>
-            <td>{{ question.question }}</td>
+            <td class="align-middle">{{ question.course }}</td>
+            <td class="align-middle">{{ question.professor.user }}</td>
+            <td class="align-middle">{{ question.question }}</td>
             {# Only TAs and Professors should be able to remove students from the queue, currently not functional #}
             {% if 'ta' in roles or 'professor' in roles %}
-            <td><form method="POST" action="{% url 'question-done' %}">
+            <td class="align-middle text-right">
+                <form method="POST" action="{% url 'question-done' %}">
                     {% csrf_token %}
                     <input type="hidden" name="question_id" id="question{{ question.id }}" value="{{ question.id }}">
                     <input type="hidden" name="completed" id="completed" value="true">
-                    <input type="submit" name="submit" id="submit" value="Completed">
-                </form></td>
+                    <input type="submit" class='btn btn-primary' name="submit" id="submit" value="Answered">
+                </form>
+            </td>
                 {% endif %}
         </tr>
         {% endfor %}
