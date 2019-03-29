@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Available Shifts{% endblock %}
+
+{% block content %}
+<h2>Available Shifts</h2>
+{% if shiftswap_list %}
+<p class="lead">All available shifts</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Posted By</th>
+            <th>Course</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shift_swap in shiftswap_list %}
+        <tr>
+            <td>{{ shift_swap.posted_by }}</td>
+            <td>{{ shift_swap.shift.course }}</td>
+            <td>{{ shift_swap.shift.start }}</td>
+            <td>{{ shift_swap.shift.end }}</td>
+            <td class="align-middle text-right">
+                <form method="POST" action="{% url 'pickup-shift' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="shiftswap_id" id="swap{{ shift_swap.id }}" value="{{ shift_swap.id }}">
+                    <input type="hidden" name="picked_by" id="picked_by" value="{{ user }}">
+                    <input type="submit" class='btn btn-primary' name="submit" id="submit" value="Pick Up">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="lead">There are no shifts available</p>
+{% endif %}
+
+{% endblock %}

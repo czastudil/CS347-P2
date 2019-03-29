@@ -17,6 +17,7 @@ from .forms import (
 from .models import (
     Question,
     Shift,
+    ShiftSwap,
 )
 
 
@@ -58,7 +59,22 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
 
 class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
     model = Shift
-    queryset = Shift.objects.filter(is_available=True)
+    raise_exception = False
+    permission_denied_message = (
+        "Only TAs are able to access this page. Please talk to a professor to"
+        " ensure that your TA access has been configured correctly."
+    )
+
+    def get_queryset(self):
+        return Shift.objects.filter(owner=self.request.user.ta)
+
+    def test_func(self):
+        return hasattr(self.request.user, 'ta')
+
+
+class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
+    model = ShiftSwap
+    queryset = ShiftSwap.objects.filter(picked_by=None)
     raise_exception = False
     permission_denied_message = (
         "Only TAs are able to access this page. Please talk to a professor to"
@@ -75,4 +91,12 @@ def question_done(request):
         question.completed = True
         question.save()
         return redirect('/tahours/questions')
+
+def pickup_shift(request):
+    if request.method == 'POST':
+        id = request.POST['shiftswap_id']
+        swap = ShiftSwap.objects.get(pk=id)
+        swap.picked_by = request.user.ta
+        swap.save()
+        return redirect('/tahours/swap-shifts')
 

@@ -25,7 +25,8 @@
                 {% endif %}
 
                 {% if 'ta' in roles %}
-                <li><a href="{% url 'shifts' %}">Shifts</a></li>
+                <li><a href="{% url 'shifts' %}">My Shifts</a></li>
+                <li><a href="{% url 'swap-shifts' %}">Swap Shifts</a></li>
                 {% endif %}
 
                 {% if 'professor' in roles %}

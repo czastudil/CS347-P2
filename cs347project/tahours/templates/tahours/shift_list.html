@@ -3,9 +3,9 @@
 {% block title %}Available Shifts{% endblock %}
 
 {% block content %}
-<h2>Available Shifts</h2>
+<h2>Current Shifts</h2>
 {% if shift_list %}
-<p class="lead">All available shifts</p>
+<p class="lead">Currently-assigned shifts</p>
 <table class="table">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
     </tbody>
 </table>
 {% else %}
-<p class="lead">There are no shifts available</p>
+<p class="lead">There are not any shifts currently assigned to you.</p>
 {% endif %}
 
 {% endblock %}
