@@ -22,19 +22,36 @@ from .models import (
 
 
 def index(request):
+    """
+    Renders the application index page
+    """
+
     return render(request, 'tahours/index.html')
 
 
 def help(request):
+    """
+    Renders the help/FAQ page
+    """
+
     return render(request, 'tahours/help.html')
 
 
 class QuestionListView(generic.ListView):
+    """
+    Lists all of the questions that have not been answered.
+    """
+
     model = Question
     queryset = Question.objects.filter(completed=False)
 
 
 class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.edit.FormView):
+    """
+    Displays the form to ask a question but limits access to logged in users
+    who have the 'student' role.
+    """
+
     raise_exception = False
     form_class = QuestionForm
     success_url = '/tahours/questions'
@@ -58,6 +75,11 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
 
 
 class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
+    """
+    Displays all shifts currently assigned to the logged-in user. Limits access
+    to TAs.
+    """
+
     model = Shift
     raise_exception = False
     permission_denied_message = (
@@ -73,6 +95,10 @@ class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gener
 
 
 class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
+    """
+    Displays all shifts that are able to be picked up by a TA.
+    """
+
     model = ShiftSwap
     queryset = ShiftSwap.objects.filter(picked_by=None)
     raise_exception = False
@@ -84,7 +110,15 @@ class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, g
     def test_func(self):
         return hasattr(self.request.user, 'ta')
 
+
 def question_done(request):
+    """
+    Handles the form when a question is marked as done. Redirects the user
+    back to the question list.
+    """
+
+    # TODO: Limit access to TAs
+
     if request.method == 'POST':
         id = request.POST['question_id']
         question = Question.objects.get(pk=id)
@@ -92,7 +126,13 @@ def question_done(request):
         question.save()
         return redirect('/tahours/questions')
 
+
 def pickup_shift(request):
+    """
+    Handles the form when a shift is picked up. Redirects the user back to the
+    available shifts list.
+    """
+
     if request.method == 'POST':
         id = request.POST['shiftswap_id']
         swap = ShiftSwap.objects.get(pk=id)
@@ -100,7 +140,13 @@ def pickup_shift(request):
         swap.save()
         return redirect('/tahours/swap-shifts')
 
+
 def post_shift(request):
+    """
+    Handles the form when a shift is marked as available. Redirects the user
+    to the list of shifts currently assigned to them.
+    """
+
     if request.method == 'POST':
         shift_id = request.POST['shift_id']
         shift = Shift.objects.get(pk=shift_id)
@@ -116,4 +162,3 @@ def post_shift(request):
         shift.save()
 
         return redirect('/tahours/shifts')
-
