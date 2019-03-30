@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'ta',
         'USER': 'ta_user',
         'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'HOST': 'files.kylelaker.com',
         'PORT': '5432',
     }
 }
