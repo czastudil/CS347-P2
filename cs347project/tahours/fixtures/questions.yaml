@@ -2,7 +2,7 @@
 - model: tahours.Question
   pk: 1
   fields:
-    student: 4
+    student: 1
     time: "2019-04-02T14:20:13-04:00"
     course: CS 159
     professor: 2
@@ -13,7 +13,7 @@
 - model: tahours.Question
   pk: 2
   fields:
-    student: 4
+    student: 1
     time: "2019-04-01T14:20:13-04:00"
     course: CS 149
     professor: 1
@@ -24,7 +24,7 @@
 - model: tahours.Question
   pk: 3
   fields:
-    student: 4
+    student: 1
     time: "2019-04-01T08:20:13-04:00"
     course: CS 240
     professor: 1

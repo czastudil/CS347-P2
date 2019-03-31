@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -12,6 +12,7 @@ from django.views import (
 
 from .forms import (
     QuestionForm,
+    ShiftForm,
 )
 
 from .models import (
@@ -19,6 +20,9 @@ from .models import (
     Shift,
     ShiftSwap,
 )
+
+def user_has_role(user, role_name):
+    return hasattr(user, role_name)
 
 
 def index(request):
@@ -54,7 +58,7 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
 
     raise_exception = False
     form_class = QuestionForm
-    success_url = '/tahours/questions'
+    success_url = '/questions'
     template_name = 'tahours/ask-question.html'
     permission_denied_message = (
         "Only students are able to access this page. Please talk to a professor to"
@@ -74,6 +78,33 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
         return hasattr(self.request.user, 'student')
 
 
+class CreateShiftView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.edit.FormView):
+    """
+    Displays the form to add/create a shift. This page is only accessible by
+    professors.
+    """
+
+    raise_exception = False
+    form_class = ShiftForm
+    success_url = "/shifts"
+    template_name = 'tahours/create-shifts.html'
+    permission_denied_message = (
+        "Only professors are able to access this page. If you believe you have"
+        " received this message in error, please contact a system administrator"
+    )
+
+    def form_valid(self, form):
+        shift = form.save(commit=False)
+        shift.start = form.cleaned_data['start']
+        shift.end = form.cleaned_data['end']
+        shift.is_available = False
+        shift.save()
+        return super().form_valid(form)
+
+    def test_func(self):
+        return hasattr(self.request.user, 'professor')
+
+
 class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
     """
     Displays all shifts currently assigned to the logged-in user. Limits access
@@ -88,10 +119,14 @@ class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gener
     )
 
     def get_queryset(self):
-        return Shift.objects.filter(owner=self.request.user.ta)
+        if user_has_role(self.request.user, 'ta'):
+            return Shift.objects.filter(owner=self.request.user.ta)
+        else:
+            return Shift.objects.filter(start__gte=datetime.date.today())
 
     def test_func(self):
-        return hasattr(self.request.user, 'ta')
+        user = self.request.user
+        return user_has_role(user, 'ta') or user_has_role(user, 'professor')
 
 
 class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
@@ -108,7 +143,8 @@ class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, g
     )
 
     def test_func(self):
-        return hasattr(self.request.user, 'ta')
+        user = self.request.user
+        return user_has_role(user, 'ta')
 
 
 def question_done(request):
@@ -124,7 +160,7 @@ def question_done(request):
         question = Question.objects.get(pk=id)
         question.completed = True
         question.save()
-        return redirect('/tahours/questions')
+        return redirect('/questions')
 
 
 def pickup_shift(request):
@@ -138,7 +174,7 @@ def pickup_shift(request):
         swap = ShiftSwap.objects.get(pk=id)
         swap.picked_by = request.user.ta
         swap.save()
-        return redirect('/tahours/swap-shifts')
+        return redirect('/swap-shifts')
 
 
 def post_shift(request):
@@ -161,4 +197,4 @@ def post_shift(request):
         swap.save()
         shift.save()
 
-        return redirect('/tahours/shifts')
+        return redirect('/shifts')

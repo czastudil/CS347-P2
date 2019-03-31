@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}Add Shift{% endblock %}
+
+{% block content %}
+<h2>Add Shift</h2>
+<p class='lead'>
+    This form can be used to create a new shift. It is best if only one or
+    a few shifts need to be created. Use the <a href="#">Bulk Scheduler</a>
+    to schedule entire semesters.
+</p>
+<div id="add-shift-wrapper">
+    <form id="add-shift" name="add-shift" method="POST" action="">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %}
+            {% if field.errors %}
+                <div class='alert alert-warning'>
+                {% for error in field.errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <input class="btn btn-primary" type="submit" value="Add Shift">
+    </form>
+</div> <!-- #ask-question-wrapper -->
+{% endblock %}

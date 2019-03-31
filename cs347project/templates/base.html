@@ -17,6 +17,8 @@
         </header>
         <nav>
             <ul>
+                {# It is important when adding new links and conditions to #}
+                {# remember that a user might have several roles.          #}
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'questions' %}">Question List</a></li>
 
@@ -30,6 +32,7 @@
                 {% endif %}
 
                 {% if 'professor' in roles %}
+                <li><a href="{% url 'shifts' %}">All Shifts</a></li>
                 {% endif %}
 
                 <li class="right-nav"><a href="{% url 'help' %}">Help</a></li>

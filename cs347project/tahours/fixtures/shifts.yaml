@@ -1,28 +1,31 @@
 ---
 - model: tahours.Shift
   fields:
+    id: 1
     start: "2019-04-03T17:00:00-04:00"
     end: "2019-04-03T19:00:00-04:00"
     course: CS 149
-    owner: 4
+    owner: 1
     is_available: False
 - model: tahours.Shift
   fields:
+    id: 2
     start: "2019-04-03T19:00:00-04:00"
     end: "2019-04-03T21:00:00-04:00"
     course: CS 149
-    owner: 4
+    owner: 1
     is_available: False
 - model: tahours.Shift
   fields:
+    id: 3
     start: "2019-04-03T21:00:00-04:00"
     end: "2019-04-03T23:00:00-04:00"
     course: CS 149
-    owner: 4
+    owner: 1
     is_available: False
 
 - model: tahours.ShiftSwap
   fields:
-    shift: 10
-    posted_by: 4
+    shift: 3
+    posted_by: 1
 ...

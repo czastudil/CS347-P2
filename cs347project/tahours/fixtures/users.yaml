@@ -1,53 +1,100 @@
 ---
-- model: tahours.User
+- model: tahours.user
   pk: 1
   fields:
+    password: pbkdf2_sha256$120000$8M4TZpvsSP4i$ofYZkOByazy+fV/56sw+nKhHUGfvb8pWi8zzcKHpP6c=
+    last_login: null
+    is_superuser: false
     username: stewarmc
-    password: stewarmcstewarmc
     first_name: Michael
     last_name: Stewart
-
-- model: tahours.User
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-03-31 01:35:13.034003+00:00
+    groups: []
+    user_permissions: []
+- model: tahours.user
   pk: 2
   fields:
+    password: pbkdf2_sha256$120000$1i5A7oN51scu$paG70m187tuWYzXwYxWObqgeZIZwCx3gFTtIXdpZrC0=
+    last_login: null
+    is_superuser: false
     username: weikleda
-    password: weikledaweikleda
     first_name: Dee
     last_name: Weikle
-
-- model: tahours.User
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-03-31 01:35:13.095767+00:00
+    groups: []
+    user_permissions: []
+- model: tahours.user
   pk: 3
   fields:
+    password: pbkdf2_sha256$120000$4XZ0PJzhf8EH$IXlUCsLs+2OM8Fv8IGtfuuZUUeo8gzH8fx+7Lg2KGOQ=
+    last_login: null
+    is_superuser: false
     username: lakerka
-    password: lakerkalakerka
     first_name: Kyle
     last_name: Laker
-
-- model: tahours.User
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-03-31 01:35:13.126382+00:00
+    groups: []
+    user_permissions: []
+- model: tahours.user
   pk: 4
   fields:
+    password: pbkdf2_sha256$120000$8XVKWhrAUsrq$XeVcPqSJiyKDaYfro2JdFyqSPuUO4U7WGQ0QNGNcV+c=
+    last_login: null
+    is_superuser: false
     username: zastudcr
-    password: zastudcrzastudcr
     first_name: Cindy
     last_name: Zastudil
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-03-31 01:35:13.156837+00:00
+    groups: []
+    user_permissions: []
+- model: tahours.user
+  pk: 5
+  fields:
+    password: pbkdf2_sha256$120000$4wysyFloc0zo$kFe192Wep6Lbh7m2fT6w1rXUKuBLdVjKlIBzHvEUWtk=
+    last_login: 2019-03-31 01:36:38.321527+00:00
+    is_superuser: true
+    username: admin
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: true
+    is_active: true
+    date_joined: 2019-03-31 01:36:33.698843+00:00
+    groups: []
+    user_permissions: []
 
 - model: tahours.Student
+  pk: 1
   fields:
     user: 3
+    courses:
+      - CS 149
+      - CS 159
 
 - model: tahours.TA
+  pk: 1
   fields:
     user: 4
 
 - model: tahours.Professor
+  pk: 1
   fields:
     user: 1
 
 - model: tahours.Professor
+  pk: 2
   fields:
     user: 2
-
-- model: tahours.Professor
-  fields:
-    user: 3
 ...

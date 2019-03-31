@@ -84,6 +84,9 @@ class Shift(models.Model):
     owner = models.ForeignKey(TA, on_delete=models.SET_NULL, null=True)
     is_available = models.BooleanField()
 
+    def __str__(self):
+        return f"<Shift {self.start} - {self.end}>"
+
     class Meta:
         ordering = ['start', 'end']
 
@@ -93,6 +96,9 @@ class ShiftSwap(models.Model):
     posted_by = models.ForeignKey(TA, related_name='posted', on_delete=models.SET_NULL, null=True)
     picked_by = models.ForeignKey(TA, related_name='picked', on_delete=models.SET_NULL, null=True)
     approved_by = models.ForeignKey(Professor, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"<ShiftSwap {self.shift}>"
 
     class Meta:
         ordering = ['shift']

@@ -18,6 +18,7 @@
     </thead>
     <tbody>
         {% for shift_swap in shiftswap_list %}
+        {% if shiftwap.shift.course in user.ta.courses %}
         <tr>
             <td>{{ shift_swap.posted_by }}</td>
             <td>{{ shift_swap.shift.course }}</td>
@@ -32,6 +33,7 @@
                 </form>
             </td>
         </tr>
+        {% endif %}
         {% endfor %}
     </tbody>
 </table>
