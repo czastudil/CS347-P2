@@ -2,7 +2,10 @@ import datetime
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.core.exceptions import PermissionDenied
+from django.core.exceptions import (
+    PermissionDenied,
+    ValidationError,
+)
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import mixins
 from django.views import (
@@ -39,6 +42,15 @@ def help(request):
     """
 
     return render(request, 'tahours/help.html')
+
+
+def already_taken(request):
+    """
+    Displays a message that the shift was already taken
+    """
+
+    # TODO: Do this cleaner
+    return render(request, 'tahours/already-taken.html')
 
 
 class QuestionListView(generic.ListView):
@@ -175,9 +187,14 @@ def pickup_shift(request):
     if request.method == 'POST':
         id = request.POST['shiftswap_id']
         swap = ShiftSwap.objects.get(pk=id)
-        swap.picked_by = request.user.ta
-        swap.save()
-        return redirect('/swap-shifts')
+        if not swap.picked_by:
+            swap.picked_by = request.user.ta
+            swap.save()
+            return redirect('/swap-shifts')
+        else:
+            return redirect('/shift-taken')
+    return redirect('/swap-shifts')
+
 
 
 def post_shift(request):

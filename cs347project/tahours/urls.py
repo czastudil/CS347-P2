@@ -13,4 +13,5 @@ urlpatterns = [
     path('pickup-shift', views.pickup_shift, name='pickup-shift'),
     path('add-shift', views.CreateShiftView.as_view(), name='add-shift'),
     path('post-shift', views.post_shift, name='post-shift'),
+    path('shift-taken', views.already_taken, name='shift-taken'),
 ]
