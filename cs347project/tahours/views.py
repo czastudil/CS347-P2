@@ -135,12 +135,15 @@ class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, g
     """
 
     model = ShiftSwap
-    queryset = ShiftSwap.objects.filter(picked_by=None)
+    #queryset = ShiftSwap.objects.filter(picked_by=None)
     raise_exception = False
     permission_denied_message = (
         "Only TAs are able to access this page. Please talk to a professor to"
         " ensure that your TA access has been configured correctly."
     )
+
+    def get_queryset(self):
+        return ShiftSwap.objects.filter(picked_by=None, shift__course__in=self.request.user.ta.courses.all())
 
     def test_func(self):
         user = self.request.user
