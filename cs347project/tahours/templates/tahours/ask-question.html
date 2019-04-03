@@ -2,10 +2,11 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Ask A Question{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Ask Question{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Ask A Question</h2>
 <p>
     You can use this form to ask the TAs a question. You will be
     added to the queue and they will come assist you once it is

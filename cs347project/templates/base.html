@@ -13,37 +13,47 @@
     </head>
     <body>
         <header>
-            <h1>TA Hours</h1>
+            <div class="container">
+                <span class="header-text">TA Hours</span>
+            </div>
         </header>
-        <nav>
-            <ul>
-                {# It is important when adding new links and conditions to #}
-                {# remember that a user might have several roles.          #}
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'questions' %}">Question List</a></li>
+        <nav class="navbar navbar-dark navbar-expand-md navbar-bg-gold">
+            <div class="container collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    {# It is important when adding new links and conditions to #}
+                    {# remember that a user might have several roles.          #}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'questions' %}">Question List</a></li>
 
-                {% if 'student' in roles %}
-                <li><a href="{% url 'ask_question' %}">Ask Question</a></li>
-                {% endif %}
+                    {% if 'student' in roles %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ask_question' %}">Ask Question</a></li>
+                    {% endif %}
 
-                {% if 'ta' in roles %}
-                <li><a href="{% url 'shifts' %}">My Shifts</a></li>
-                <li><a href="{% url 'swap-shifts' %}">Swap Shifts</a></li>
-                {% endif %}
+                    {% if 'ta' in roles %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'shifts' %}">My Shifts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'swap-shifts' %}">Swap Shifts</a></li>
+                    {% endif %}
 
-                {% if 'professor' in roles %}
-                <li><a href="{% url 'shifts' %}">All Shifts</a></li>
-                {% endif %}
+                    {% if 'professor' in roles %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'shifts' %}">All Shifts</a></li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item right-nav"><a class="nav-link" href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                    <li class="nav-item right-nav"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
 
-                <li class="right-nav"><a href="{% url 'help' %}">Help</a></li>
-
-                {% if user.is_authenticated %}
-                <li class="right-nav"><a href="{% url 'logout' %}">Log out</a></li>
-                {% else %}
-                <li class="right-nav"><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-            </ul>
+                    <li class="nav-item right-nav"><a class="nav-link" href="{% url 'help' %}">Help</a></li>
+                </ul>
+            </div>
         </nav>
+        <div class="page-head">
+            <div class="container">
+                {% block head %}{% endblock %}
+            </div>
+        </div>
         <main role="main" class="container">
             {% block content %}
             {% endblock %}

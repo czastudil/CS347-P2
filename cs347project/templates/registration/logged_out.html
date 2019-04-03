@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Logged Out{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Logged Out{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Logged out</h2>
 <p>You have been successfully logged out.</p>
 {% endblock %}

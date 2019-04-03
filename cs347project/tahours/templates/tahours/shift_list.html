@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Available Shifts{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Current Shifts{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Current Shifts</h2>
 {% if shift_list %}
 <p class="lead">Currently-assigned shifts</p>
 <table class="table">

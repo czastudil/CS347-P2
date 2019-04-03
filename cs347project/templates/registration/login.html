@@ -2,10 +2,11 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Login{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Login{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
 {% if form.errors %}
     <div class="alert alert-danger" role="alert">
         Your e-ID and password did not match. Please try again.

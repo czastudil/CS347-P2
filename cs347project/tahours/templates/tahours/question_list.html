@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Current Queue{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Current Queue{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Current Queue</h2>
 {% if question_list %}
 <p class="lead">A list of all current questions in the queue</p>
 <table class="table">

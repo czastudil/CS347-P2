@@ -2,10 +2,11 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Add Shift{% endblock %}
+{% block head %}
+<span class="page-title">{% block title %}Create Shift{% endblock %}</span>
+{% endblock %}
 
 {% block content %}
-<h2>Add Shift</h2>
 <p class='lead'>
     This form can be used to create a new shift. It is best if only one or
     a few shifts need to be created. Use the <a href="#">Bulk Scheduler</a>

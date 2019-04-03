@@ -5,41 +5,77 @@
  */
 
 header {
-    height: 100px;
-    text-align: center;
-    background-color: #F4EFE1;
+    height: 50px;
+    background-color: #450084;
     vertical-align: middle;
-    line-height: 100px;
+    line-height: 50px;
+    color: #FFFFFF;
 }
 
-h1 {
+.header-text {
+    font-family: "Arvo", sans-serif;
+    color: #FFFFFF;
     display: inline;
     vertical-align: middle;
+    font-size: 30px;
 }
 
-/* Navigation */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #450084;
+.page-head {
+    height: 60px;
+    background-color: #F4EFE1;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+.page-head .page-title {
+    color: #450084;
+    font-family: "Arvo", sans-serif;
+    font-size: 28px;
+    vertical-align: middle;
 }
 
 main {
     margin-top: 1em;
 }
 
+/* Navigation */
+.navbar-nav > li > a {
+    line-height: 50px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav, .navbar {
+    height: 50px;
+}
+
+.navbar-bg-gold {
+    background-color: rgb(223, 210, 170);
+}
+
+.nav-item, .nav-link {
+    color: #450084 !important;
+    text-transform: uppercase;
+}
+
+.nav-item:hover {
+    background-color: #AD9C65;
+}
+
+/*
 nav ul li {
+    height: 50px;
     float: left;
 }
 
 nav ul li a, nav ul li a:not([href]):not([tabindex]) {
     display: block;
-    color: white;
+    color: #450084;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -54,13 +90,13 @@ nav ul li a, nav ul li a:not([href]):not([tabindex]) {
 
 nav ul li a:hover {
     text-decoration: none;
-    color: #333333;
+    color: #450084;
 }
 
 nav ul li a:hover:not(.active) {
-    background-color: #B599CE;
+    background-color: #AD9C65;
 }
-
+*/
 main {
     margin-bottom: 1em;
 }
@@ -87,4 +123,22 @@ main {
     background: inherit;
     color: #450084;
     cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #450084;
+    border-color: #450084;
+}
+
+.btn-primary:hover, .btn-active:active {
+    background-color: #B599CE;
+    border-color: #B599CE;
+}
+
+.btn-secondary {
+    background-color: #FFBD00;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background-color: #FFCC3E;
 }
