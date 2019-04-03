@@ -90,6 +90,22 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
         return hasattr(self.request.user, 'student')
 
 
+class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.TemplateView):
+    """
+    Ta onboarding view
+    """
+
+    raise_exception = False
+    permission_denied_message = (
+        "Only TAs are able to access this page. Please talk to a professor to"
+        " ensure that your TA access has been configured correctly."
+    )
+    template_name = 'tahours/ta-onboard.html'
+
+    def test_func(self):
+        return hasattr(self.request.user, 'ta')
+
+
 class CreateShiftView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.edit.FormView):
     """
     Displays the form to add/create a shift. This page is only accessible by
@@ -141,6 +157,22 @@ class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gener
         return user_has_role(user, 'ta') or user_has_role(user, 'professor')
 
 
+class ProfessorApproveSwap(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
+    models = ShiftSwap
+    raise_exception = False
+    template_name = 'tahours/approve-swap.html'
+    permission_denied_message = (
+        "Only professors have access to view this page. Please talk to a system"
+        " administrator if you believe you are receiving this message in error"
+    )
+
+    def get_queryset(self):
+        return ShiftSwap.objects.filter(approved_by=None).exclude(picked_by=None)
+
+    def test_func(self):
+        return user_has_role(self.request.user, 'professor')
+
+
 class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.ListView):
     """
     Displays all shifts that are able to be picked up by a TA.
@@ -155,7 +187,7 @@ class ShiftSwapListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, g
     )
 
     def get_queryset(self):
-        return ShiftSwap.objects.filter(picked_by=None, shift__course__in=self.request.user.ta.courses.all())
+        return ShiftSwap.objects.filter(picked_by=None)
 
     def test_func(self):
         user = self.request.user
@@ -195,6 +227,20 @@ def pickup_shift(request):
             return redirect('/shift-taken')
     return redirect('/swap-shifts')
 
+
+def approve_swap(request):
+    if request.method == 'POST':
+        id = request.POST['shiftswap_id']
+        swap = ShiftSwap.objects.get(pk=id)
+        if not swap.approved_by:
+            swap.approved_by = request.user.professor
+            swap.shift.owner = swap.picked_by
+            swap.shift.save()
+            swap.save()
+            return redirect('/approve-swap')
+        else:
+            return redirect('/')
+    return redirect('/approve-swap')
 
 
 def post_shift(request):

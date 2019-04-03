@@ -6,6 +6,7 @@ from django.forms import ModelForm
 from .models import (
     Question,
     Shift,
+    TaInfo,
 )
 
 
@@ -19,6 +20,7 @@ class QuestionForm(ModelForm):
             'assignment',
             'question',
         ]
+
 
 class ShiftForm(ModelForm):
 
