@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<span class="page-title">{% block title %}Approve Shift Swap{% endblock %}</span>
+{% endblock %}
+
+{% block content %}
+{% if shiftswap_list %}
+<p class="lead">All shift swaps pending approval</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Posted By</th>
+            <th>Taken By</th>
+            <th>Course</th>
+            <th>Start</th>
+            <th>End</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for shift_swap in shiftswap_list %}
+        <tr>
+            <td>{{ shift_swap.posted_by }}</td>
+            <td>{{ shift_swap.picked_by }}</td>
+            <td>{{ shift_swap.shift.course }}</td>
+            <td>{{ shift_swap.shift.start }}</td>
+            <td>{{ shift_swap.shift.end }}</td>
+            <td class="align-middle text-right">
+                <form method="POST" action="{% url 'approve-swap-process' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="shiftswap_id" id="swap{{ shift_swap.id }}" value="{{ shift_swap.id }}">
+                    <input type="submit" class='btn btn-primary' name="submit" id="submit" value="Approve">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="lead">There are no pending swap requests.</p>
+{% endif %}
+
+{% endblock %}
+
+{% block debug_data %}
+<p>Ta: {{ user.ta }}</p>
+<p>Courses: {{ user.ta.courses.all|join:", " }}</p>
+{% endblock %}

@@ -148,7 +148,7 @@ class ShiftListView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gener
 
     def get_queryset(self):
         if user_has_role(self.request.user, 'ta'):
-            return Shift.objects.filter(owner=self.request.user.ta)
+            return Shift.objects.filter(owner=self.request.user.ta, start__gte=datetime.date.today())
         else:
             return Shift.objects.filter(start__gte=datetime.date.today())
 
@@ -235,6 +235,7 @@ def approve_swap(request):
         if not swap.approved_by:
             swap.approved_by = request.user.professor
             swap.shift.owner = swap.picked_by
+            swap.shift.is_available = False
             swap.shift.save()
             swap.save()
             return redirect('/approve-swap')
@@ -253,7 +254,6 @@ def post_shift(request):
         shift_id = request.POST['shift_id']
         shift = Shift.objects.get(pk=shift_id)
         shift.is_available = True;
-        shift.owner = None;
         swap = ShiftSwap()
         swap.posted_by = request.user.ta
         swap.shift = Shift.objects.get(pk=shift_id)

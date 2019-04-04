@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block head %}
+<span class="page-title">{% block title %}Ask Question{% endblock %}</span>
+{% endblock %}
+
+{% block content %}
+<p>
+    You can use this form to ask the TAs a question. You will be
+    added to the queue and they will come assist you once it is
+    your turn. Please be as detailed as possible with your
+    problem/question description.
+</p>
+<div id="ask-question-wrapper">
+    <form id="ask-question" name="ask-question" method="POST" action="">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {% render_field field class="form-control" %}
+        </div>
+        {% endfor %}
+
+        <input class="btn btn-primary" type="submit" value="Ask Question">
+    </form>
+</div> <!-- #ask-question-wrapper -->
+{% endblock %}

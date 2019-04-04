@@ -32,11 +32,15 @@
             {% endif %}
             {% if 'ta' in roles %}
             <td class="align-middle text-right">
+                {% if not shift.is_available %}
                 <form method="POST" action="{% url 'post-shift' %}">
                     {% csrf_token %}
                     <input type="hidden" name="shift_id" id="shift{{ shift.id }}" value="{{ shift.id }}">
                     <input type="submit" class='btn btn-primary' name="submit" id="submit" value="Post">
                 </form>
+                {% else %}
+                Posted
+                {% endif %}
             </td>
             {% endif %}
         </tr>

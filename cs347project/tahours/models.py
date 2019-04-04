@@ -6,6 +6,7 @@ from django.core.validators import (
     MaxValueValidator,
 )
 
+
 DAYS_OF_WEEK = {
     1: 'Sunday',
     2: 'Monday',
@@ -13,6 +14,7 @@ DAYS_OF_WEEK = {
     4: 'Wednesday',
     5: 'Thursday',
 }
+
 
 class DayOfWeekField(models.CharField):
     def __init__(self, *args, **kwargs):
