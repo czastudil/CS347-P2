@@ -36,6 +36,7 @@ header {
 
 main {
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 /* Navigation */
@@ -63,59 +64,8 @@ nav, .navbar {
     background-color: #AD9C65;
 }
 
-/*
-nav ul li {
-    height: 50px;
-    float: left;
-}
-
-nav ul li a, nav ul li a:not([href]):not([tabindex]) {
-    display: block;
-    color: #450084;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.right-nav {
-    float: right;
-}
-
-.active {
-    color: #333333;
-    background-color: #CBB677;
-}
-
-nav ul li a:hover {
-    text-decoration: none;
-    color: #450084;
-}
-
-nav ul li a:hover:not(.active) {
-    background-color: #AD9C65;
-}
-*/
-main {
-    margin-bottom: 1em;
-}
 
 /* Generic content */
-
-.left-content {
-    margin-right: 4em;
-    width: 50%;
-}
-
-.right-content {
-    width: 40%;
-}
-
-.middle-content {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 #help, #logout {
     float: right;
@@ -130,8 +80,13 @@ main {
     border-color: #450084;
 }
 
-.btn-primary:hover, .btn-active:active {
+.btn-primary:hover {
     background-color: #B599CE;
+    border-color: #450084;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #450084;
     border-color: #B599CE;
 }
 
@@ -139,6 +94,6 @@ main {
     background-color: #FFBD00;
 }
 
-.btn-secondary:hover, .btn-secondary:active {
+.btn-secondary:hover, .btn-secondary:not(:disabled):not(.disabled):active {
     background-color: #FFCC3E;
 }
