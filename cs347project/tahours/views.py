@@ -16,6 +16,7 @@ from django.views import (
 from .forms import (
     QuestionForm,
     ShiftForm,
+    OnboardForm,
 )
 
 from .models import (
@@ -90,12 +91,14 @@ class AskQuestionView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, gen
         return hasattr(self.request.user, 'student')
 
 
-class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.TemplateView):
+class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.edit.FormView):
     """
     Ta onboarding view
     """
 
     raise_exception = False
+    form_class = OnboardForm
+    success_url = '/questions'
     permission_denied_message = (
         "Only TAs are able to access this page. Please talk to a professor to"
         " ensure that your TA access has been configured correctly."

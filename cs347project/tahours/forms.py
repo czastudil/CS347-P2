@@ -22,6 +22,14 @@ class QuestionForm(ModelForm):
         ]
 
 
+class OnboardForm(ModelForm):
+    class Meta:
+        model = TaInfo
+        fields = [
+          'min_hours',
+          'max_hours',
+        ]
+
 class ShiftForm(ModelForm):
 
     date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
