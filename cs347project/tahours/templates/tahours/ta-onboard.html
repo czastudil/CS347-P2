@@ -3,18 +3,16 @@
 {% load widget_tweaks %}
 
 {% block head %}
-<span class="page-title">{% block title %}Ask Question{% endblock %}</span>
+<span class="page-title">{% block title %}TA Onboard{% endblock %}</span>
 {% endblock %}
 
 {% block content %}
 <p>
-    You can use this form to ask the TAs a question. You will be
-    added to the queue and they will come assist you once it is
-    your turn. Please be as detailed as possible with your
-    problem/question description.
+    You can use this form to add yourself to the system and complete your TA profile.
+    Here you can add your availability and preferred hours.
 </p>
-<div id="ask-question-wrapper">
-    <form id="ask-question" name="ask-question" method="POST" action="">
+<div id="ta-onboard-wrapper">
+    <form id="ta-onboard" name="ta-onboard" method="POST" action="">
         {% csrf_token %}
 
         {{ form.non_field_errors }}
@@ -31,7 +29,7 @@
         </div>
         {% endfor %}
 
-        <input class="btn btn-primary" type="submit" value="Ask Question">
+        <input class="btn btn-primary" type="submit" value="Save Preferences">
     </form>
-</div> <!-- #ask-question-wrapper -->
+</div> <!-- #ta-onboard-wrapper -->
 {% endblock %}
