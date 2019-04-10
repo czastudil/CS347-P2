@@ -130,5 +130,6 @@ STATIC_URL = '/static/'
 # Redirect to home URL after login
 LOGIN_REDIRECT_URL = '/'
 
+# Custom settings
 AUTH_USER_MODEL = 'tahours.User'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

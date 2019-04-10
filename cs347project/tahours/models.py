@@ -66,17 +66,15 @@ class Professor(models.Model):
         return f"{self.user.username}"
 
 
-class Availability(models.Model):
-    dayOfWeek = DayOfWeekField()
-    startTime = models.TimeField()
-    endTime = models.TimeField()
-
-
 class TaInfo(models.Model):
     courses = models.ManyToManyField(Course)
     min_hours = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(20)])
     max_hours = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(20)])
-    availability = models.ManyToManyField(Availability)
+    sun_avail = models.TextField()
+    mon_avail = models.TextField()
+    tues_avail = models.TextField()
+    wed_avail = models.TextField()
+    thur_avail = models.TextField()
 
     class Meta:
         ordering = ['ta']

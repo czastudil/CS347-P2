@@ -11,7 +11,6 @@ from .models import (
     Student,
     TA,
     TaInfo,
-    Availability,
 )
 
 admin.site.register(User, UserAdmin)
@@ -22,5 +21,4 @@ admin.site.register(ShiftSwap)
 admin.site.register(Professor)
 admin.site.register(Student)
 admin.site.register(TaInfo)
-admin.site.register(Availability)
 admin.site.register(TA)
