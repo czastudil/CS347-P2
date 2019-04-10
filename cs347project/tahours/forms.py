@@ -28,6 +28,11 @@ class OnboardForm(ModelForm):
         fields = [
           'min_hours',
           'max_hours',
+          'sun_avail',
+          'mon_avail',
+          'tues_avail',
+          'wed_avail',
+          'thur_avail',
         ]
 
 class ShiftForm(ModelForm):
