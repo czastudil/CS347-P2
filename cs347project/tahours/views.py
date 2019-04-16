@@ -98,12 +98,20 @@ class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.
 
     raise_exception = False
     form_class = OnboardForm
-    success_url = '/questions'
+    success_url = '/shifts'
     permission_denied_message = (
         "Only TAs are able to access this page. Please talk to a professor to"
         " ensure that your TA access has been configured correctly."
     )
     template_name = 'tahours/ta-onboard.html'
+    
+    def form_valid(self, form):
+        info = form.save(commit=False)
+        info.save()
+        self.request.user.ta.ta_info = info
+        self.request.user.ta.save()
+        #info.save()
+        return super().form_valid(form)
 
     def test_func(self):
         return hasattr(self.request.user, 'ta')
