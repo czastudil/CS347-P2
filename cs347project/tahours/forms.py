@@ -34,6 +34,15 @@ class OnboardForm(ModelForm):
           'wed_avail',
           'thur_avail',
         ]
+        labels = {
+          'min_hours': 'Minimum Hours/Week',
+          'max_hours': 'Maximum Hours/Week',
+          'sun_avail': 'Sunday Availability (from 1pm - 11pm)',
+          'mon_avail': 'Monday Availability (from 5pm - 11pm)',
+          'tues_avail': 'Tuesday Availability (from 5pm - 11pm)',
+          'wed_avail': 'Wednesday Availability (from 5pm - 11pm)',
+          'thur_avail': 'Thursday Availability (from 5pm - 11pm)',
+        }
 
 class ShiftForm(ModelForm):
 
