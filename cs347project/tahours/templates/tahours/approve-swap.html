@@ -45,5 +45,5 @@
 
 {% block debug_data %}
 <p>Ta: {{ user.ta }}</p>
-<p>Courses: {{ user.ta.courses.all|join:", " }}</p>
+<p>Courses: {{ user.ta.ta_info.courses.all|join:", " }}</p>
 {% endblock %}

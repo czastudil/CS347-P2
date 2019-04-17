@@ -54,7 +54,7 @@ class ShiftForm(ModelForm):
         cleaned_data = super().clean()
         ta = cleaned_data.get('owner')
         course = cleaned_data.get('course')
-        if course not in ta.courses.all():
+        if course not in ta.ta_info.courses.all():
             msg = f"{course} is not valid for {ta}"
             self.add_error('owner', msg)
             self.add_error('course', msg)
