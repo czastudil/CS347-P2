@@ -33,6 +33,7 @@ class OnboardForm(ModelForm):
           'tues_avail',
           'wed_avail',
           'thur_avail',
+          'courses',
         ]
         labels = {
           'min_hours': 'Minimum Hours/Week',

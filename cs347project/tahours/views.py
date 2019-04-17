@@ -110,7 +110,6 @@ class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.
         info.save()
         self.request.user.ta.ta_info = info
         self.request.user.ta.save()
-        #info.save()
         return super().form_valid(form)
 
     def test_func(self):
