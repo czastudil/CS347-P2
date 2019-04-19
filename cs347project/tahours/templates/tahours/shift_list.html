@@ -48,7 +48,11 @@
     </tbody>
 </table>
 {% else %}
+{% if 'ta' in roles %}
 <p class="lead">There are not any shifts currently assigned to you.</p>
+{% elif 'professor' in roles %}
+<p class="lead">There are no shifts assigned to any TAs</p>
+{% endif %}
 {% endif %}
 
 {% if 'professor' in roles %}
