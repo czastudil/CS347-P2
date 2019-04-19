@@ -104,7 +104,7 @@ class TaInfoView(mixins.LoginRequiredMixin, mixins.UserPassesTestMixin, generic.
         " ensure that your TA access has been configured correctly."
     )
     template_name = 'tahours/ta-onboard.html'
-    
+
     def form_valid(self, form):
         info = form.save(commit=False)
         info.save()
